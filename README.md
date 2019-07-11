@@ -2,30 +2,33 @@
 
 Capacitor plugin to enable features from Firebase Crashlytics
 
-<!-- ![Capacitor Firebase Crashlytics Plugin]() -->
+> Android coming soon
+
+![Capacitor Firebase Crashlytics Plugin](https://i.imgur.com/F8cy3PQ.png)
 
 ## API
 
 - `crash(): Promise<void>`
+- `logUser(options: {id: string, email:string, name: string}): Promise<void>`
 
 > For more information check the [`definitions`](/src/definitions.ts) file
 
 ## Usage
 
 ```js
-import { Plugins } from '@capacitor/core';
-const { CrashlyticsPlugin } = Plugins;
-
-//
-// force a crash
-CrashlyticsPlugin.crash();
-
-//
-// alternative way
-// with type inference
-
 import { Crashlytics } from 'capacitor-crashlytics';
 const crashlytics = new Crashlytics();
+
+//
+// log user
+crashlytics
+  .logUser({
+    name: this.name,
+    email: this.email,
+    id: this.id
+  })
+  .then(() => alert(`user logged`))
+  .catch(err => alert(err.message));
 
 //
 // force a crash
@@ -61,6 +64,21 @@ Download the `google-services.json` file and copy it to `android/app/` directory
 
 > Tip: every time you change a native code you may need to clean up the cache (Product > Clean build folder) and then run the app again.
 
+### Build phase
+
+1. [Create a Fabric account](https://fabric.io/kits?show_signup=true)
+2. Go to [install instructions](https://fabric.io/kits/ios/crashlytics/install)
+3. Follow steps on **Add a Run Script Build Phase**
+4. Follow steps on **Add Your API Key**
+
+After you build the app in xcode you should be able to link it in Firebase console. To start seeing logs in the panel, force a crash using method `crash` (app must not be running within xcode) and then re-start the app.
+
+### Not seeing a crash in the dashboard?
+
+- Double-check in your Build Settings that your Debug Information Format is **DWARF with dSYM File** for both Debug and Release
+- Make sure to launch the app after crashing it, so that the crash can be uploaded
+- If you don’t see the crash after a few minutes, run your app again to retry crash delivery.
+
 ## Android setup
 
 - `ionic start my-cap-app --capacitor`
@@ -87,7 +105,7 @@ For existing projects you can upgrade all capacitor related packages (including 
 
 ## Sample app
 
-https://github.com/stewwan/capacitor-analytics-demo
+https://github.com/stewwan/capacitor-crashlytics-demo
 
 ## You may also like
 

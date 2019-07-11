@@ -14,4 +14,5 @@
     s.dependency 'FirebaseCore'
     s.dependency 'Fabric'
     s.dependency 'Crashlytics'
+    s.static_framework = true
   end
