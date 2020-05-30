@@ -11,17 +11,17 @@ export class FirebaseCrashlyticsWeb extends WebPlugin implements FirebaseCrashly
 
   setUserId(options: { userId: string; }): Promise<void> {
     console.log(options);
-    throw new Error("Method not implemented.");
+    return new Promise((resolve, _reject) => resolve);
   }
 
   addLogMessage(options: { message: string; }): Promise<void> {
     console.log(options);
-    throw new Error("Method not implemented.");
+    return new Promise((resolve, _reject) => resolve);
   }
 
   setEnabled(options: { enabled: boolean; }): Promise<void> {
     console.log(options);
-    throw new Error("Method not implemented.");
+    return new Promise((resolve, _reject) => resolve);
   }
 
   crash(): Promise<void> {
@@ -30,7 +30,7 @@ export class FirebaseCrashlyticsWeb extends WebPlugin implements FirebaseCrashly
 
   setContext(options: ContextOptions): Promise<void> {
     console.log(options);
-    throw new Error("Method not implemented.");
+    return new Promise((resolve, _reject) => resolve);
   }
 }
 

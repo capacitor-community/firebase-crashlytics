@@ -1,27 +1,27 @@
 import { Plugins } from '@capacitor/core';
-import { FirebaseCrashlyticsPlugin as FBCrashlyticsPlugin, ContextOptions } from './definitions';
+import { FirebaseCrashlyticsPlugin, ContextOptions } from './definitions';
 
-const { FirebaseCrashlyticsPlugin } = Plugins;
+const { FirebaseCrashlytics: FBCrashlytics } = Plugins;
 
-export class FirebaseCrashlytics implements FBCrashlyticsPlugin {
+export class FirebaseCrashlytics implements FirebaseCrashlyticsPlugin {
     setUserId(options: { userId: string; }): Promise<void> {
-        return FirebaseCrashlyticsPlugin.setUserId(options);
+        return FBCrashlytics.setUserId(options);
     }
 
     addLogMessage(options: { message: string; }): Promise<void> {
-        return FirebaseCrashlyticsPlugin.addLogMessage(options);
+        return FBCrashlytics.addLogMessage(options);
     }
 
     setEnabled(options: { enabled: boolean; }): Promise<void> {
-        return FirebaseCrashlyticsPlugin.setEnabled(options);
+        return FBCrashlytics.setEnabled(options);
     }
 
     crash(): Promise<void> {
-        return FirebaseCrashlyticsPlugin.crash();
+        return FBCrashlytics.crash();
     }
 
     setContext(options: ContextOptions): Promise<void> {
-        return FirebaseCrashlyticsPlugin.logContext(options);
+        return FBCrashlytics.logContext(options);
     }
 
 }

@@ -1,14 +1,15 @@
 {
-  "name": "firebase-crashlytics",
+  "name": "@capacitor-community/firebase-crashlytics",
   "version": "0.0.1",
-  "description": "Firebase Crashlytics for Capacitor Community",
+  "description": "A native plugin for firebase crashlytics",
   "main": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "publish": "np"
   },
   "author": "Priyank Patel <priyank.patel@stackspace.ca>",
   "license": "MIT",
