@@ -1,13 +1,14 @@
 import Foundation
 import Capacitor
 import Firebase
+import FirebaseCrashlytics
 
 /**
  * Please read the Capacitor iOS Plugin Development Guide
  * here: https://capacitor.ionicframework.com/docs/plugins/ios
  */
-@objc(FirebaseCrashlytics)
-public class FirebaseCrashlytics: CAPPlugin {
+@objc(FirebaseCrashlytic)
+public class FirebaseCrashlytic: CAPPlugin {
     
     public override func load() {
         FirebaseApp.configure()
@@ -22,9 +23,36 @@ public class FirebaseCrashlytics: CAPPlugin {
     @objc func setContext(_ call: CAPPluginCall) {
         if call.hasOption("key") && call.hasOption("value") {
             let key = call.getString("key")
-            let value = call.getString("value")
+            let type = call.getString("type") ?? "string"
             
-            Crashlytics.crashlytics().setCustomValue(value as Any, forKey: key!)
+            switch type {
+            case "string":
+                Crashlytics.crashlytics().setCustomValue(call.getString("value") as Any, forKey: key!)
+                break
+                
+            case "int":
+                Crashlytics.crashlytics().setCustomValue(call.getInt("value") as Any, forKey: key!)
+                break
+                
+            case "boolean":
+                Crashlytics.crashlytics().setCustomValue(call.getBool("value") as Any, forKey: key!)
+                break
+                
+            case "long":
+                Crashlytics.crashlytics().setCustomValue(call.getInt("value") as Any, forKey: key!)
+                break
+                
+            case "double":
+                Crashlytics.crashlytics().setCustomValue(call.getDouble("value") as Any, forKey: key!)
+                break
+                
+            case "float":
+                Crashlytics.crashlytics().setCustomValue(call.getFloat("value") as Any, forKey: key!)
+                break
+                
+            default:
+                Crashlytics.crashlytics().setCustomValue(call.getString("value") as Any, forKey: key!)
+            }
             call.success()
         } else {
             call.reject("key or value is missing")

@@ -1,9 +1,8 @@
-package com.getcapacitor.community.firebasecrashlytics;
+package com.getcapacitor.community.firebasecrashlytic;
 
 import android.Manifest;
 import android.util.Log;
 
-import com.getcapacitor.JSObject;
 import com.getcapacitor.NativePlugin;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
@@ -16,9 +15,9 @@ import com.getcapacitor.PluginMethod;
         Manifest.permission.WAKE_LOCK
     }
 )
-public class FirebaseCrashlytics extends Plugin {
+public class FirebaseCrashlytic extends Plugin {
   
-  public final static String TAG = "FirebaseCrashlytics";
+  public final static String TAG = "FirebaseCrashlytic";
 
     @Override
     public void load() {

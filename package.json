@@ -31,7 +31,7 @@
     "dist/",
     "ios/",
     "android/",
-    "FirebaseCrashlytics.podspec"
+    "FirebaseCrashlytic.podspec"
   ],
   "keywords": [
     "capacitor",

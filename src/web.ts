@@ -6,7 +6,7 @@ export class FirebaseCrashlyticsWeb extends WebPlugin
   implements FirebaseCrashlyticsPlugin {
   constructor() {
     super({
-      name: "FirebaseCrashlytics",
+      name: "FirebaseCrashlytic",
       platforms: ["web"],
     });
   }

@@ -1,6 +1,6 @@
 declare module "@capacitor/core" {
   interface PluginRegistry {
-    FirebaseCrashlytics: FirebaseCrashlyticsPlugin;
+    FirebaseCrashlytic: FirebaseCrashlyticsPlugin;
   }
 }
 
