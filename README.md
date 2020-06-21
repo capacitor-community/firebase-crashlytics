@@ -1,9 +1,131 @@
-# Capacitor Community Github Org
+# Capacitor Firebase Crashlytics Plugin
 
-The `capacitor-community` GitHub org seeks to bring together the highest quality Capacitor plugins and the Capacitor plugin authoring community into a single place and help users find high quality, well maintained Capacitor plugins.
+Capacitory community plugin for firebase crashlytics.
 
-Every plugin in the `capacitor-community` org commits to a base level of maintenance and quality control, and, as much as possible, follows a set of consistent design and code standards.
+## Maintainers
 
-Unlike the core Capacitor tooling and APIs, plugins in the `capacitor-community` are not maintained by the Ionic or Capacitor core team (though may be maintained by individuals on the team), but by the community and community maintainers. However, the Ionic and Capacitor team do facilitate and work closely with maintainers to ensure that plugins are kept up to date, follow the latest in Capacitor plugin standards, and have a broad set of useful functionality.
+| Maintainer | GitHub | Social | Sponsoring Company |
+| -----------| -------| -------| -------------------|
+| Priyank Patel | [priyankpat](https://github.com/priyankpat) | [@priyankpat_](https://twitter.com/priyankpat_) | Ionic |
 
-Beyond maintenance, plugin authors commit to providing a safe environment and adhere to the community Code of Conduct, and expect the same of all users.
+Mainteinance Status: Actively Maintained
+
+## Installation
+
+To use npm
+
+```bash
+npm install @capacitor/firebase-crashlytics
+```
+
+To use yarn
+
+```bash
+yarn add @capacitor/firebase-crashlytics
+```
+
+Sync native files
+
+```bash
+npx cap sync
+```
+
+On iOS, no further steps are needed.
+
+On Android, register the plugin in your main activity:
+
+```java
+import com.getcapacitor.community.firebasecrashlytics.FirebaseCrashlytics;
+
+public class MainActivity extends BridgeActivity {
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    // Initializes the Bridge
+    this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
+      // Additional plugins you've installed go here
+      // Ex: add(TotallyAwesomePlugin.class);
+      add(FirebaseCrashlytics.class);
+    }});
+  }
+}
+```
+
+## Configuration
+
+No configuration required for this plugin.
+
+## Supported methods
+
+| Name  | Android | iOS | Web
+| :---- | :--- | :--- | :--- |
+| crash | ✅ | ✅ | ❌ 
+| setContext | ✅ | ✅ | ❌ 
+| setUserId | ✅ | ✅ | ❌ 
+| addLogMessage | ✅ | ✅ | ❌ 
+| setEnabled | ✅ | ✅ | ❌ 
+
+## Usage
+
+```typescript
+// Must import the package once to make sure the web support initializes
+import '@capacitor-community/http';
+
+import { Plugins } from '@capacitor/core';
+
+const { FirebaseRemoteConfig } = Plugins;
+
+/**
+ * This method will throw an exception triggering crashlytics to log the event.
+ * @param none
+ * @returns void
+ */
+FirebaseRemoteConfig.crash();
+
+/**
+ * This method will record custom key/value pair associated with subsequent fatals and non-fatal reports.
+ * @param keys - a unique key associated to the report
+ *        value - a unique value associated to the key (string | number | boolean)
+ *        type - type of value ('string' | 'long' | 'double' | 'boolean' | 'int' | 'float')
+ * @returns none
+ */
+FirebaseRemoteConfig.setContext({
+  key: 'theme',
+  value: 'dark',
+  type: 'string',
+});
+
+FirebaseRemoteConfig.setContext({
+  key: 'battery',
+  value: 32,
+  type: 'int',
+});
+
+/**
+ * This method will record a user identifier that's associated with subsequent fatal and non-fatal reports.
+ * @param userId - unique identifier
+ * @returns none
+ */
+FirebaseRemoteConfig.setUserId({
+  userId: '507f191e810c19729de860ea', // e.g. mongodb document id for a specific user
+});
+
+/**
+ * This method will log a message that's included in the next fatal and non-fatal crash.
+ * @params message - string message to record
+ * @returns none
+ */
+FirebaseRemoteConfig.addLogMessage({
+  message: 'This is a test message: Capacitor is awesome! 😃',
+});
+
+/**
+ * This method will enable/disable crashlytics report collection.
+ * @params enabled - true/false to enable/disable reporting
+ * @returns none
+ */
+FirebaseRemoteConfig.setEnabled({
+  enabled: false,
+});
+```
