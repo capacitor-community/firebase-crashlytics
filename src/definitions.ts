@@ -7,9 +7,9 @@ declare module "@capacitor/core" {
 export interface FirebaseCrashlyticsPlugin {
   crash(): Promise<void>;
   setContext(options: ContextOptions): Promise<void>;
-  setUserId(options: { userId: string; }): Promise<void>;
-  addLogMessage(options: { message: string; }): Promise<void>;
-  setEnabled(options: { enabled: boolean; }): Promise<void>;
+  setUserId(options: { userId: string }): Promise<void>;
+  addLogMessage(options: { message: string }): Promise<void>;
+  setEnabled(options: { enabled: boolean }): Promise<void>;
 }
 
 export interface ContextOptions {
