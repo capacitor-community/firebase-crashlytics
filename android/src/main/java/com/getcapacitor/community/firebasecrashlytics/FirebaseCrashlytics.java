@@ -1,6 +1,7 @@
 package com.getcapacitor.community.firebasecrashlytics;
 
 import android.Manifest;
+import android.util.Log;
 
 import com.getcapacitor.JSObject;
 import com.getcapacitor.NativePlugin;
@@ -16,6 +17,8 @@ import com.getcapacitor.PluginMethod;
     }
 )
 public class FirebaseCrashlytics extends Plugin {
+  
+  public final static String TAG = "FirebaseCrashlytics";
 
     @Override
     public void load() {
@@ -34,13 +37,41 @@ public class FirebaseCrashlytics extends Plugin {
 
     @PluginMethod()
     public void setContext(PluginCall call) {
-        if (call.hasOption("key") && call.hasOption("value")) {
+        try {
+          if (call.hasOption("key") && call.hasOption("value")) {
             String key = call.getString("key");
-            String value = call.getString("value");
+            String type = call.getString("type", "string");
 
-            com.google.firebase.crashlytics.FirebaseCrashlytics.getInstance().setCustomKey(key, value);
-        } else {
+            switch(type) {
+              case "string":
+                com.google.firebase.crashlytics.FirebaseCrashlytics.getInstance().setCustomKey(key, call.getString("value"));
+                break;
+
+              case "long":
+                com.google.firebase.crashlytics.FirebaseCrashlytics.getInstance().setCustomKey(key, Long.valueOf(call.getInt("value")));
+                break;
+
+              case "int":
+                com.google.firebase.crashlytics.FirebaseCrashlytics.getInstance().setCustomKey(key, call.getInt("value"));
+                break;
+
+              case "boolean":
+                com.google.firebase.crashlytics.FirebaseCrashlytics.getInstance().setCustomKey(key, call.getBoolean("value"));
+                break;
+
+              case "float":
+                com.google.firebase.crashlytics.FirebaseCrashlytics.getInstance().setCustomKey(key, call.getFloat("value"));
+                break;
+
+              case "double":
+                com.google.firebase.crashlytics.FirebaseCrashlytics.getInstance().setCustomKey(key, call.getDouble("value"));
+                break;
+            }
+          } else {
             call.reject("key or value is missing.");
+          }
+        } catch (Exception ex) {
+          Log.e(TAG, "Caught exception while setting a crashlytics context: " + ex.getLocalizedMessage());
         }
     }
 
