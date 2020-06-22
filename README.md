@@ -35,7 +35,7 @@ On iOS, no further steps are needed.
 On Android, register the plugin in your main activity:
 
 ```java
-import com.getcapacitor.community.firebasecrashlytics.FirebaseCrashlytics;
+import com.getcapacitor.community.firebasecrashlytics.FirebaseCrashlytic;
 
 public class MainActivity extends BridgeActivity {
   @Override
@@ -46,7 +46,7 @@ public class MainActivity extends BridgeActivity {
     this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
       // Additional plugins you've installed go here
       // Ex: add(TotallyAwesomePlugin.class);
-      add(FirebaseCrashlytics.class);
+      add(FirebaseCrashlytic.class);
     }});
   }
 }
@@ -74,14 +74,14 @@ import '@capacitor-community/http';
 
 import { Plugins } from '@capacitor/core';
 
-const { FirebaseRemoteConfig } = Plugins;
+const { FirebaseCrashlytic } = Plugins;
 
 /**
  * This method will throw an exception triggering crashlytics to log the event.
  * @param none
  * @returns void
  */
-FirebaseRemoteConfig.crash();
+FirebaseCrashlytic.crash();
 
 /**
  * This method will record custom key/value pair associated with subsequent fatals and non-fatal reports.
@@ -90,13 +90,13 @@ FirebaseRemoteConfig.crash();
  *        type - type of value ('string' | 'long' | 'double' | 'boolean' | 'int' | 'float')
  * @returns none
  */
-FirebaseRemoteConfig.setContext({
+FirebaseCrashlytic.setContext({
   key: 'theme',
   value: 'dark',
   type: 'string',
 });
 
-FirebaseRemoteConfig.setContext({
+FirebaseCrashlytic.setContext({
   key: 'battery',
   value: 32,
   type: 'int',
@@ -107,7 +107,7 @@ FirebaseRemoteConfig.setContext({
  * @param userId - unique identifier
  * @returns none
  */
-FirebaseRemoteConfig.setUserId({
+FirebaseCrashlytic.setUserId({
   userId: '507f191e810c19729de860ea', // e.g. mongodb document id for a specific user
 });
 
@@ -116,7 +116,7 @@ FirebaseRemoteConfig.setUserId({
  * @params message - string message to record
  * @returns none
  */
-FirebaseRemoteConfig.addLogMessage({
+FirebaseCrashlytic.addLogMessage({
   message: 'This is a test message: Capacitor is awesome! 😃',
 });
 
@@ -125,7 +125,7 @@ FirebaseRemoteConfig.addLogMessage({
  * @params enabled - true/false to enable/disable reporting
  * @returns none
  */
-FirebaseRemoteConfig.setEnabled({
+FirebaseCrashlytic.setEnabled({
   enabled: false,
 });
 ```
