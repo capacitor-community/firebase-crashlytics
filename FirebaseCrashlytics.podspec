@@ -1,6 +1,6 @@
 
   Pod::Spec.new do |s|
-    s.name = 'FirebaseCrashlytic'
+    s.name = 'CapacitorCommunityFirebaseCrashlytic'
     s.version = '0.1.0'
     s.summary = 'A native plugin for firebase crashlytics'
     s.license = 'MIT'
