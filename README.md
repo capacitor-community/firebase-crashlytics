@@ -4,9 +4,9 @@ Capacitory community plugin for firebase crashlytics.
 
 ## Maintainers
 
-| Maintainer | GitHub | Social | Sponsoring Company |
-| -----------| -------| -------| -------------------|
-| Priyank Patel | [priyankpat](https://github.com/priyankpat) | [@priyankpat_](https://twitter.com/priyankpat_) | Ionic |
+| Maintainer    | GitHub                                      | Social                                           | Sponsoring Company |
+| ------------- | ------------------------------------------- | ------------------------------------------------ | ------------------ |
+| Priyank Patel | [priyankpat](https://github.com/priyankpat) | [@priyankpat\_](https://twitter.com/priyankpat_) | Ionic              |
 
 Mainteinance Status: Actively Maintained
 
@@ -15,13 +15,13 @@ Mainteinance Status: Actively Maintained
 To use npm
 
 ```bash
-npm install @capacitor/firebase-crashlytics
+npm install @capacitor-community/firebase-crashlytics
 ```
 
 To use yarn
 
 ```bash
-yarn add @capacitor/firebase-crashlytics
+yarn add @capacitor-community/firebase-crashlytics
 ```
 
 Sync native files
@@ -32,47 +32,82 @@ npx cap sync
 
 On iOS, no further steps are needed.
 
-On Android, register the plugin in your main activity:
+On Android, configure the firebase-crashlytics-gradle classpath/plugin and register the plugin in your main activity:
+
+build.gralde (root of the project)
+
+```gradle
+buildscript {
+  repositories {
+    google()
+    jcenter()
+  }
+
+  dependencies {
+    ...
+
+    // Add the line below
+    classpath 'com.google.firebase:firebase-crashlytics-gradle:2.2.0'
+  }
+}
+```
+
+build.gradle (inside app directory)
+
+```gradle
+// Add this at the bottom of the file
+apply plugin: 'com.google.firebase.crashlytics'
+```
+
+MainActivity.java
 
 ```java
-import com.getcapacitor.community.firebasecrashlytics.FirebaseCrashlytic;
+import com.getcapacitor.community.firebasecrashlytic.FirebaseCrashlytic;
 
 public class MainActivity extends BridgeActivity {
+
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     // Initializes the Bridge
-    this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
-      // Additional plugins you've installed go here
-      // Ex: add(TotallyAwesomePlugin.class);
-      add(FirebaseCrashlytic.class);
-    }});
+    this.init(
+        savedInstanceState,
+        new ArrayList<Class<? extends Plugin>>() {
+
+          {
+            // Additional plugins you've installed go here
+            // Ex: add(TotallyAwesomePlugin.class);
+            add(FirebaseCrashlytic.class);
+          }
+        }
+      );
   }
 }
 ```
 
 ## Configuration
 
-No configuration required for this plugin.
+Download appropriate google-services.json or GoogleService-Info.plist and place it in the correct platform app directory.
+
+**For Android**: /android/app
+
+**For iOS**: /ios/App/App
 
 ## Supported methods
 
-| Name  | Android | iOS | Web
-| :---- | :--- | :--- | :--- |
-| crash | ✅ | ✅ | ❌ 
-| setContext | ✅ | ✅ | ❌ 
-| setUserId | ✅ | ✅ | ❌ 
-| addLogMessage | ✅ | ✅ | ❌ 
-| setEnabled | ✅ | ✅ | ❌ 
+| Name          | Android | iOS | Web |
+| :------------ | :------ | :-- | :-- |
+| crash         | ✅      | ✅  | ❌  |
+| setContext    | ✅      | ✅  | ❌  |
+| setUserId     | ✅      | ✅  | ❌  |
+| addLogMessage | ✅      | ✅  | ❌  |
+| setEnabled    | ✅      | ✅  | ❌  |
 
 ## Usage
 
 ```typescript
-// Must import the package once to make sure the web support initializes
-import '@capacitor-community/http';
-
-import { Plugins } from '@capacitor/core';
+import { Plugins } from "@capacitor/core";
 
 const { FirebaseCrashlytic } = Plugins;
 
@@ -91,15 +126,15 @@ FirebaseCrashlytic.crash();
  * @returns none
  */
 FirebaseCrashlytic.setContext({
-  key: 'theme',
-  value: 'dark',
-  type: 'string',
+  key: "theme",
+  value: "dark",
+  type: "string",
 });
 
 FirebaseCrashlytic.setContext({
-  key: 'battery',
+  key: "battery",
   value: 32,
-  type: 'int',
+  type: "int",
 });
 
 /**
@@ -108,7 +143,7 @@ FirebaseCrashlytic.setContext({
  * @returns none
  */
 FirebaseCrashlytic.setUserId({
-  userId: '507f191e810c19729de860ea', // e.g. mongodb document id for a specific user
+  userId: "507f191e810c19729de860ea", // e.g. mongodb document id for a specific user
 });
 
 /**
@@ -117,7 +152,7 @@ FirebaseCrashlytic.setUserId({
  * @returns none
  */
 FirebaseCrashlytic.addLogMessage({
-  message: 'This is a test message: Capacitor is awesome! 😃',
+  message: "This is a test message: Capacitor is awesome! 😃",
 });
 
 /**
