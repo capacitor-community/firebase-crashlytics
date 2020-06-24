@@ -1,6 +1,6 @@
 import Foundation
 import Capacitor
-import Firebase
+import FirebaseCore
 import FirebaseCrashlytics
 
 /**
