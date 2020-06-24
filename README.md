@@ -94,6 +94,17 @@ Download appropriate google-services.json or GoogleService-Info.plist and place 
 
 **For iOS**: /ios/App/App
 
+## Examples
+
+[Click here](https://github.com/priyankpat/capacitor-plugins-example/tree/firebase-crashlytics) for example on how to implement this plugin
+
+You can also clone the repository
+
+```bash
+git clone https://github.com/priyankpat/capacitor-plugins-example/tree/firebase-crashlytics
+git checkout -b firebase-crashlytics
+```
+
 ## Supported methods
 
 | Name          | Android | iOS | Web |
