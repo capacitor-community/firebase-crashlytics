@@ -101,7 +101,7 @@ Download appropriate google-services.json or GoogleService-Info.plist and place 
 You can also clone the repository
 
 ```bash
-git clone https://github.com/priyankpat/capacitor-plugins-example/tree/firebase-crashlytics
+git clone https://github.com/priyankpat/capacitor-plugins-example
 git checkout -b firebase-crashlytics
 ```
 
