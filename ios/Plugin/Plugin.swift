@@ -11,7 +11,9 @@ import FirebaseCrashlytics
 public class FirebaseCrashlytic: CAPPlugin {
     
     public override func load() {
-        FirebaseApp.configure()
+        if (FirebaseApp.allApps?.count == 0) {
+            FirebaseApp.configure()
+        }
     }
     
     @objc func crash(_ call: CAPPluginCall) {
