@@ -11,18 +11,15 @@ export class FirebaseCrashlyticsWeb extends WebPlugin
     });
   }
 
-  setUserId(options: { userId: string }): Promise<void> {
-    console.log(options);
+  setUserId(_options: { userId: string }): Promise<void> {
     return new Promise((resolve, _reject) => resolve);
   }
 
-  addLogMessage(options: { message: string }): Promise<void> {
-    console.log(options);
+  addLogMessage(_options: { message: string }): Promise<void> {
     return new Promise((resolve, _reject) => resolve);
   }
 
-  setEnabled(options: { enabled: boolean }): Promise<void> {
-    console.log(options);
+  setEnabled(_options: { enabled: boolean }): Promise<void> {
     return new Promise((resolve, _reject) => resolve);
   }
 
@@ -33,6 +30,22 @@ export class FirebaseCrashlyticsWeb extends WebPlugin
   setContext(options: ContextOptions): Promise<void> {
     console.log(options);
     return new Promise((resolve, _reject) => resolve);
+  }
+
+  isEnabled(): Promise<{ enabled: boolean }> {
+    throw new Error("Method not implemented.");
+  }
+
+  didCrashDuringPreviousExecution(): Promise<{ crashed: boolean }> {
+    throw new Error("Method not implemented.");
+  }
+
+  sendUnsentReports(): Promise<void> {
+    throw new Error("Method not implemented.");
+  }
+
+  deleteUnsentReports(): Promise<void> {
+    throw new Error("Method not implemented.");
   }
 }
 
