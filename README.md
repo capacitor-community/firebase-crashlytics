@@ -25,8 +25,6 @@
 | Stewan Silva   | [stewwan](https://github.com/stewwan)                   | [@StewanSilva](https://twitter.com/StewanSilva)  |
 | Daniel Pereira | [danielprrazevedo](https://github.com/danielprrazevedo) | [@DandanPrr](https://twitter.com/DandanPrr)      |
 
-Maintenance Status: Actively Maintained
-
 ## Installation
 
 Using npm:
