@@ -9,4 +9,8 @@ CAP_PLUGIN(FirebaseCrashlytic, "FirebaseCrashlytic",
            CAP_PLUGIN_METHOD(addLogMessage, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(setUserId, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(setEnabled, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(isEnabled, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(didCrashDuringPreviousExecution, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(sendUnsentReports, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(deleteUnsentReports, CAPPluginReturnPromise);
 )
