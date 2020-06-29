@@ -1,6 +1,6 @@
 # Capacitor Firebase Crashlytics Plugin
 
-Capacitory community plugin for firebase crashlytics.
+Capacitor community plugin for Firebase Crashlytics.
 
 ## Maintainers
 
@@ -9,23 +9,23 @@ Capacitory community plugin for firebase crashlytics.
 | Priyank Patel | [priyankpat](https://github.com/priyankpat) | [@priyankpat\_](https://twitter.com/priyankpat_) | Ionic              |
 | Stewan Silva  | [stewwan](https://github.com/stewwan)       | [@StewanSilva](https://twitter.com/StewanSilva)  | Ionic              |
 
-Mainteinance Status: Actively Maintained
+Maintenance Status: Actively Maintained
 
 ## Installation
 
-To use npm
+Using npm:
 
 ```bash
 npm install @capacitor-community/firebase-crashlytics
 ```
 
-To use yarn
+Using yarn:
 
 ```bash
 yarn add @capacitor-community/firebase-crashlytics
 ```
 
-Sync native files
+Sync native files:
 
 ```bash
 npx cap sync
@@ -33,9 +33,9 @@ npx cap sync
 
 On iOS, no further steps are needed.
 
-On Android, configure the firebase-crashlytics-gradle classpath/plugin and register the plugin in your main activity:
+On Android, add `firebase-crashlytics-gradle` to `build.gradle` and register the plugin in your main activity:
 
-build.gralde (root of the project)
+`build.gradle` (root of the project):
 
 ```gradle
 buildscript {
@@ -53,14 +53,14 @@ buildscript {
 }
 ```
 
-build.gradle (inside app directory)
+`build.gradle` (inside app directory):
 
 ```gradle
 // Add this at the bottom of the file
 apply plugin: 'com.google.firebase.crashlytics'
 ```
 
-MainActivity.java
+`MainActivity.java`:
 
 ```java
 import com.getcapacitor.community.firebasecrashlytic.FirebaseCrashlytic;
@@ -89,17 +89,16 @@ public class MainActivity extends BridgeActivity {
 
 ## Configuration
 
-Download appropriate google-services.json or GoogleService-Info.plist and place it in the correct platform app directory.
+Download `google-services.json` and `GoogleService-Info.plist` and place it in their respective platform app directory.
 
-**For Android**: /android/app
-
-**For iOS**: /ios/App/App
+- Android: `android/app`
+- iOS: `ios/App/App`
 
 ## Examples
 
-[Click here](https://github.com/priyankpat/capacitor-plugins-example/tree/firebase-crashlytics) for example on how to implement this plugin
+[Click here](https://github.com/priyankpat/capacitor-plugins-example/tree/firebase-crashlytics) for an example on how to implement this plugin.
 
-You can also clone the repository
+You can also clone the repository:
 
 ```bash
 git clone https://github.com/priyankpat/capacitor-plugins-example
