@@ -9,7 +9,6 @@ import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 @NativePlugin(
   permissions = {
@@ -73,38 +72,38 @@ public class FirebaseCrashlytics extends Plugin {
 
       switch (type) {
         case "string":
-          com.google.firebase.crashlytics.FirebaseCrashlytics
-            .getInstance()
+          com
+            .google.firebase.crashlytics.FirebaseCrashlytics.getInstance()
             .setCustomKey(key, call.getString("value"));
           break;
         case "long":
-          com.google.firebase.crashlytics.FirebaseCrashlytics
-            .getInstance()
+          com
+            .google.firebase.crashlytics.FirebaseCrashlytics.getInstance()
             .setCustomKey(key, Long.valueOf(call.getInt("value")));
           break;
         case "int":
-          com.google.firebase.crashlytics.FirebaseCrashlytics
-            .getInstance()
+          com
+            .google.firebase.crashlytics.FirebaseCrashlytics.getInstance()
             .setCustomKey(key, call.getInt("value"));
           break;
         case "boolean":
-          com.google.firebase.crashlytics.FirebaseCrashlytics
-            .getInstance()
+          com
+            .google.firebase.crashlytics.FirebaseCrashlytics.getInstance()
             .setCustomKey(key, call.getBoolean("value"));
           break;
         case "float":
-          com.google.firebase.crashlytics.FirebaseCrashlytics
-            .getInstance()
+          com
+            .google.firebase.crashlytics.FirebaseCrashlytics.getInstance()
             .setCustomKey(key, call.getFloat("value"));
           break;
         case "double":
-          com.google.firebase.crashlytics.FirebaseCrashlytics
-            .getInstance()
+          com
+            .google.firebase.crashlytics.FirebaseCrashlytics.getInstance()
             .setCustomKey(key, call.getDouble("value"));
           break;
         default:
-          com.google.firebase.crashlytics.FirebaseCrashlytics
-            .getInstance()
+          com
+            .google.firebase.crashlytics.FirebaseCrashlytics.getInstance()
             .setCustomKey(key, call.getString("value"));
       }
       call.success();
