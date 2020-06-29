@@ -140,14 +140,17 @@ public class FirebaseCrashlytics extends Plugin {
    */
   @PluginMethod
   public void addLogMessage(PluginCall call) {
-    if (call.hasOption("message")) {
-      String message = call.getString("message");
-
-      com
-        .google.firebase.crashlytics.FirebaseCrashlytics.getInstance()
-        .log(message);
-      call.success();
+    if (!call.hasOption("message")) {
+      call.error("message property is missing");
+      return;
     }
+
+    String message = call.getString("message");
+
+    com
+      .google.firebase.crashlytics.FirebaseCrashlytics.getInstance()
+      .log(message);
+    call.success();
   }
 
   /**
