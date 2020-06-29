@@ -124,10 +124,12 @@ const { FirebaseCrashlytic } = Plugins;
 
 /**
  * This method will throw an exception triggering crashlytics to log the event.
- * @param none
+ * @params message - string message to record (mandatory)
  * @returns void
  */
-FirebaseCrashlytic.crash();
+FirebaseCrashlytic.crash({
+  message: "This is a crash message: Capacitor is awesome! 😃",
+});
 
 /**
  * This method will record custom key/value pair associated with subsequent fatals and non-fatal reports.
