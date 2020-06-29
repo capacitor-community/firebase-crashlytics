@@ -1,4 +1,4 @@
-package com.getcapacitor.community.firebasecrashlytic;
+package com.getcapacitor.community.firebasecrashlytics;
 
 import android.Manifest;
 import android.util.Log;
@@ -18,8 +18,8 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics;
     Manifest.permission.WAKE_LOCK,
   }
 )
-public class FirebaseCrashlytic extends Plugin {
-  public static final String TAG = "FirebaseCrashlytic";
+public class FirebaseCrashlytics extends Plugin {
+  public static final String TAG = "FirebaseCrashlytics";
   private Bridge bridge;
 
   @Override
@@ -73,37 +73,37 @@ public class FirebaseCrashlytic extends Plugin {
 
       switch (type) {
         case "string":
-          FirebaseCrashlytics
+          com.google.firebase.crashlytics.FirebaseCrashlytics
             .getInstance()
             .setCustomKey(key, call.getString("value"));
           break;
         case "long":
-          FirebaseCrashlytics
+          com.google.firebase.crashlytics.FirebaseCrashlytics
             .getInstance()
             .setCustomKey(key, Long.valueOf(call.getInt("value")));
           break;
         case "int":
-          FirebaseCrashlytics
+          com.google.firebase.crashlytics.FirebaseCrashlytics
             .getInstance()
             .setCustomKey(key, call.getInt("value"));
           break;
         case "boolean":
-          FirebaseCrashlytics
+          com.google.firebase.crashlytics.FirebaseCrashlytics
             .getInstance()
             .setCustomKey(key, call.getBoolean("value"));
           break;
         case "float":
-          FirebaseCrashlytics
+          com.google.firebase.crashlytics.FirebaseCrashlytics
             .getInstance()
             .setCustomKey(key, call.getFloat("value"));
           break;
         case "double":
-          FirebaseCrashlytics
+          com.google.firebase.crashlytics.FirebaseCrashlytics
             .getInstance()
             .setCustomKey(key, call.getDouble("value"));
           break;
         default:
-          FirebaseCrashlytics
+          com.google.firebase.crashlytics.FirebaseCrashlytics
             .getInstance()
             .setCustomKey(key, call.getString("value"));
       }
