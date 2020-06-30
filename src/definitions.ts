@@ -10,6 +10,10 @@ export interface FirebaseCrashlyticsPlugin {
   setUserId(options: { userId: string }): Promise<void>;
   addLogMessage(options: { message: string }): Promise<void>;
   setEnabled(options: { enabled: boolean }): Promise<void>;
+  isEnabled(): Promise<{ enabled: boolean }>;
+  didCrashDuringPreviousExecution(): Promise<{ crashed: boolean }>;
+  sendUnsentReports(): Promise<void>;
+  deleteUnsentReports(): Promise<void>;
 }
 
 export interface ContextOptions {
