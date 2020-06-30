@@ -1,6 +1,11 @@
 import { WebPlugin } from "@capacitor/core";
 
-import { FirebaseCrashlyticsPlugin, ContextOptions } from "./definitions";
+import {
+  FirebaseCrashlyticsPlugin,
+  ContextOptions,
+  iOSException,
+  AndroidException,
+} from "./definitions";
 
 export class FirebaseCrashlyticsWeb extends WebPlugin
   implements FirebaseCrashlyticsPlugin {
@@ -45,6 +50,10 @@ export class FirebaseCrashlyticsWeb extends WebPlugin
   }
 
   deleteUnsentReports(): Promise<void> {
+    throw new Error("Method not implemented.");
+  }
+
+  recordException(_options: iOSException | AndroidException): Promise<void> {
     throw new Error("Method not implemented.");
   }
 }
