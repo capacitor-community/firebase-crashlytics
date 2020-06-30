@@ -220,4 +220,23 @@ public class FirebaseCrashlytics extends Plugin {
       .deleteUnsentReports();
     call.success();
   }
+
+  /**
+   * Records a non-fatal report to send to Crashlytics.
+   * If automatic data collection is disabled, this method queues up all the reports on a device to send to Crashlytics.
+   * @param call
+   */
+  @PluginMethod
+  public void recordException(PluginCall call) {
+    if (!call.hasOption("message")) {
+      call.error("message property is missing");
+      return;
+    }
+
+    String message = call.getString("message");
+    com
+      .google.firebase.crashlytics.FirebaseCrashlytics.getInstance()
+      .recordException(new Throwable(message));
+    call.success();
+  }
 }
