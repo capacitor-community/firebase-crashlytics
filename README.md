@@ -250,3 +250,35 @@ FirebaseCrashlytics.sendUnsentReports();
  */
 FirebaseCrashlytics.deleteUnsentReports();
 ```
+
+## Enable Crashlytics debug logging
+
+If your forced crash didn't crash, crashed before you wanted it to, or you're experiencing some other issue with Crashlytics, you can enable Crashlytics debug logging to track down the problem.
+
+### iOS
+
+To enable debug logging on your development device, specify the following command line argument in Xcode:
+
+```bash
+-FIRDebugEnabled
+```
+
+### Android
+
+To enable debug logging on your development device, set an adb shell flag before running your app:
+
+```bash
+adb shell setprop log.tag.FirebaseCrashlytics DEBUG
+```
+
+To view the logs in your device logs, run:
+
+```bash
+adb logcat -s FirebaseCrashlytics
+```
+
+To disable debug logging, set the flag back to **INFO**:
+
+```
+adb shell setprop log.tag.FirebaseCrashlytics INFO
+```
