@@ -141,11 +141,13 @@ import { Plugins } from "@capacitor/core";
 const { FirebaseCrashlytics } = Plugins;
 
 /**
- * Trigger a fatal crash for crashlytics to record
- * @param none
+ * This method will throw an exception triggering crashlytics to log the event.
+ * @params message - string message to record (mandatory)
  * @returns void
  */
-FirebaseCrashlytics.crash();
+FirebaseCrashlytic.crash({
+  message: "This is a crash message: Capacitor is awesome! 😃",
+});
 
 /**
  * Sets a custom key and value to be associated with subsequent fatal and non-fatal reports. When setting an object value, the object is converted to a string.
