@@ -147,4 +147,19 @@ public class FirebaseCrashlytics: CAPPlugin {
         Crashlytics.crashlytics().deleteUnsentReports()
         call.success()
     }
+    
+    /// Records a non-fatal report to send to Crashlytics.
+    /// If automatic data collection is disabled, this method queues up all the reports on a device to send to Crashlytics.
+    /// - Parameter call: code - the error code
+    ///                   domain - a string containing the error domain
+    ///                   message - message to record for non-fatal crash
+    @objc func recordException(_ call: CAPPluginCall) {
+        
+        let domain = call.getString("domain") ?? ""
+        let code = call.getInt("code") ?? -1001
+        let message = call.getString("message") ?? ""
+        
+        Crashlytics.crashlytics().record(error: NSError(domain: domain, code: code, userInfo: [ NSLocalizedDescriptionKey: message]))
+        call.success()
+    }
 }
