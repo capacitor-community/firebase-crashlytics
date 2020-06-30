@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1ED2EEC5989A84319C4D9E22 /* Pods_Plugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6D6D635A4C5F41119C822D /* Pods_Plugin.framework */; };
 		20B5EFDF5480183E3CFE4DD1 /* Pods_PluginTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E575D7BABFECE5B53EF92E8 /* Pods_PluginTests.framework */; };
-		50ADFF92201F53D600D50D53 /* FirebaseCrashlytic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50ADFF88201F53D600D50D53 /* FirebaseCrashlytic.framework */; };
+		50ADFF92201F53D600D50D53 /* FBCrashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50ADFF88201F53D600D50D53 /* FBCrashlytics.framework */; };
 		50ADFF97201F53D600D50D53 /* PluginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ADFF96201F53D600D50D53 /* PluginTests.swift */; };
 		50ADFF99201F53D600D50D53 /* Plugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 50ADFF8B201F53D600D50D53 /* Plugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50ADFFA42020D75100D50D53 /* Capacitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50ADFFA52020D75100D50D53 /* Capacitor.framework */; };
@@ -31,7 +31,7 @@
 		0E4538E52663D38395906171 /* Pods-Plugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plugin.release.xcconfig"; path = "Target Support Files/Pods-Plugin/Pods-Plugin.release.xcconfig"; sourceTree = "<group>"; };
 		1D6D6D635A4C5F41119C822D /* Pods_Plugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Plugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		381FB1093EB603D522558BEF /* Pods-PluginTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PluginTests.release.xcconfig"; path = "Target Support Files/Pods-PluginTests/Pods-PluginTests.release.xcconfig"; sourceTree = "<group>"; };
-		50ADFF88201F53D600D50D53 /* FirebaseCrashlytic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseCrashlytic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50ADFF88201F53D600D50D53 /* FBCrashlytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FBCrashlytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50ADFF8B201F53D600D50D53 /* Plugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Plugin.h; sourceTree = "<group>"; };
 		50ADFF8C201F53D600D50D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50ADFF91201F53D600D50D53 /* PluginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PluginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50ADFF92201F53D600D50D53 /* FirebaseCrashlytic.framework in Frameworks */,
+				50ADFF92201F53D600D50D53 /* FBCrashlytics.framework in Frameworks */,
 				20B5EFDF5480183E3CFE4DD1 /* Pods_PluginTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,7 +81,7 @@
 		50ADFF89201F53D600D50D53 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				50ADFF88201F53D600D50D53 /* FirebaseCrashlytic.framework */,
+				50ADFF88201F53D600D50D53 /* FBCrashlytics.framework */,
 				50ADFF91201F53D600D50D53 /* PluginTests.xctest */,
 			);
 			name = Products;
@@ -159,7 +159,7 @@
 			);
 			name = Plugin;
 			productName = Plugin;
-			productReference = 50ADFF88201F53D600D50D53 /* FirebaseCrashlytic.framework */;
+			productReference = 50ADFF88201F53D600D50D53 /* FBCrashlytics.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		50ADFF90201F53D600D50D53 /* PluginTests */ = {
@@ -490,8 +490,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS) $(FRAMEWORK_SEARCH_PATHS) $(FRAMEWORK_SEARCH_PATHS)";
 				MARKETING_VERSION = 0.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.getcapacitor.community.firebasecrashlytic;
-				PRODUCT_NAME = FirebaseCrashlytic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.getcapacitor.community.firebasecrashlytics;
+				PRODUCT_NAME = FBCrashlytics;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -516,8 +516,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				MARKETING_VERSION = 0.1;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.getcapacitor.community.firebasecrashlytic;
-				PRODUCT_NAME = FirebaseCrashlytic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.getcapacitor.community.firebasecrashlytics;
+				PRODUCT_NAME = FBCrashlytics;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
