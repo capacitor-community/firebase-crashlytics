@@ -141,6 +141,7 @@ import { Plugins } from "@capacitor/core";
 const { FirebaseCrashlytics } = Plugins;
 
 /**
+ * Platform: Android/iOS
  * This method will throw an exception triggering crashlytics to log the event.
  * @params message - string message to record (mandatory)
  * @returns void
@@ -150,6 +151,7 @@ FirebaseCrashlytic.crash({
 });
 
 /**
+ * Platform: Android/iOS
  * Sets a custom key and value to be associated with subsequent fatal and non-fatal reports. When setting an object value, the object is converted to a string.
  * @param keys - a unique key associated to the report
  *        value - a unique value associated to the key (string | number | boolean)
@@ -169,6 +171,7 @@ FirebaseCrashlytics.setContext({
 });
 
 /**
+ * Platform: Android/iOS
  * Records a user ID (identifier) that's associated with subsequent fatal and non-fatal reports.
  * @param userId - unique identifier
  * @returns none
@@ -178,6 +181,7 @@ FirebaseCrashlytics.setUserId({
 });
 
 /**
+ * Platform: Android/iOS
  * Logs a message that's included in the next fatal or non-fatal report.
  * @params message - string message to record
  * @returns none
@@ -187,6 +191,7 @@ FirebaseCrashlytics.addLogMessage({
 });
 
 /**
+ * Platform: Android/iOS
  * Enables/disables automatic data collection by Crashlytics.
  * @params enabled - true/false to enable/disable reporting
  * @returns none
@@ -196,6 +201,7 @@ FirebaseCrashlytics.setEnabled({
 });
 
 /**
+ * Platform: iOS
  * Indicates whether or not automatic data collection is enabled
  * @params enabled - true/false to enable/disable reporting
  * @returns none
@@ -203,6 +209,7 @@ FirebaseCrashlytics.setEnabled({
 FirebaseCrashlytics.isEnabled();
 
 /**
+ * Platform: Android/iOS
  * Enqueues any unsent reports on the device to upload to Crashlytics.
  * This method only applies if automatic data collection is disabled.
  * @params enabled - true/false to enable/disable reporting
@@ -211,6 +218,7 @@ FirebaseCrashlytics.isEnabled();
 FirebaseCrashlytics.sendUnsentReports();
 
 /**
+ * Platform: Android/iOS
  * Deletes any unsent reports on the device.
  * This method only applies if automatic data collection is disabled.
  * @params enabled - true/false to enable/disable reporting
