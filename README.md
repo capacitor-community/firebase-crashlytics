@@ -225,4 +225,27 @@ FirebaseCrashlytics.sendUnsentReports();
  * @returns none
  */
 FirebaseCrashlytics.deleteUnsentReports();
+
+/**
+ * Platform: Android/iOS
+ * Records a non-fatal report to send to Crashlytics.
+ * If automatic data collection is disabled, this method queues up all the reports on a device to send to Crashlytics.
+ * @params (android) message - message to record for non-fatal error
+ * @params (ios) code - the error code (optional) (default: -1001)
+ * @params (ios) message - a string containing the error domain (optional)
+ * @params (ios) message - message to record for non-fatal error
+ * @returns none
+ */
+
+// Android Example
+FirebaseCrashlytics.recordException({
+  message: "This is a non-fatal message",
+});
+
+// iOS Example
+FirebaseCrashlytics.recordException({
+  message: "This is a non-fatal message",
+  code: 401, // optional, default is -1001
+  domain: "capacitor", // optional
+});
 ```
