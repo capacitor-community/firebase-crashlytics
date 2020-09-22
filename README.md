@@ -77,7 +77,7 @@ apply plugin: 'com.google.firebase.crashlytics'
 `MainActivity.java`:
 
 ```java
-import com.getcapacitor.community.firebasecrashlytic.FirebaseCrashlytics;
+import com.getcapacitor.community.firebasecrashlytics.FirebaseCrashlytics;
 
 public class MainActivity extends BridgeActivity {
 
@@ -147,7 +147,7 @@ const { FirebaseCrashlytics } = Plugins;
  * @params message - string message to record (mandatory)
  * @returns void
  */
-FirebaseCrashlytic.crash({
+FirebaseCrashlytics.crash({
   message: "This is a crash message: Capacitor is awesome! 😃",
 });
 
