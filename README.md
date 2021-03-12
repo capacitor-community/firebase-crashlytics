@@ -147,7 +147,7 @@ const { FirebaseCrashlytics } = Plugins;
  * @params message - string message to record (mandatory)
  * @returns void
  */
-FirebaseCrashlytic.crash({
+FirebaseCrashlytics.crash({
   message: "This is a crash message: Capacitor is awesome! 😃",
 });
 
