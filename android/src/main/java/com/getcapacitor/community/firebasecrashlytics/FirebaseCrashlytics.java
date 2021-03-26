@@ -183,7 +183,7 @@ public class FirebaseCrashlytics extends Plugin {
    * @return crashed: boolean true/false
    */
   @PluginMethod
-  public void didCrashOnPreviousExecution(PluginCall call) {
+  public void didCrashDuringPreviousExecution(PluginCall call) {
     call.success(
       new JSObject()
       .put(
