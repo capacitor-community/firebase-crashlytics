@@ -77,7 +77,7 @@ apply plugin: 'com.google.firebase.crashlytics'
 `MainActivity.java`:
 
 ```java
-import com.getcapacitor.community.firebasecrashlytic.FirebaseCrashlytics;
+import com.getcapacitor.community.firebasecrashlytics.FirebaseCrashlytics;
 
 public class MainActivity extends BridgeActivity {
 
