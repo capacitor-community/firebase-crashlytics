@@ -217,6 +217,7 @@ FirebaseCrashlytics.addLogMessage({
 /**
  * Platform: Android/iOS
  * Enables/disables automatic data collection by Crashlytics.
+ * The value does not apply until the next run of the app.
  * @params enabled - true/false to enable/disable reporting
  * @returns none
  */
