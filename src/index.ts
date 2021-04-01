@@ -1,7 +1,7 @@
 import { registerPlugin } from "@capacitor/core";
 import type { FirebaseCrashlyticsPlugin } from "./definitions";
 
-const FirebaseAnalytics = registerPlugin<FirebaseCrashlyticsPlugin>(
+const FirebaseCrashlytics = registerPlugin<FirebaseCrashlyticsPlugin>(
   "FirebaseCrashlytics",
   {
     web: () => import("./web").then((m) => new m.FirebaseCrashlyticsWeb()),
@@ -9,4 +9,4 @@ const FirebaseAnalytics = registerPlugin<FirebaseCrashlyticsPlugin>(
 );
 
 export * from "./definitions";
-export { FirebaseAnalytics };
+export { FirebaseCrashlytics };
