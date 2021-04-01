@@ -4,17 +4,25 @@ import android.Manifest;
 import android.util.Log;
 import com.getcapacitor.Bridge;
 import com.getcapacitor.JSObject;
-import com.getcapacitor.NativePlugin;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
+import com.getcapacitor.annotation.CapacitorPlugin;
+import com.getcapacitor.annotation.Permission;
 import com.google.firebase.FirebaseApp;
 
-@NativePlugin(
+@CapacitorPlugin(
+  name = "FirebaseCrashlytics",
   permissions = {
-    Manifest.permission.ACCESS_NETWORK_STATE,
-    Manifest.permission.INTERNET,
-    Manifest.permission.WAKE_LOCK,
+    @Permission(
+      strings = { Manifest.permission.ACCESS_NETWORK_STATE },
+      alias = "network"
+    ),
+    @Permission(strings = { Manifest.permission.INTERNET }, alias = "internet"),
+    @Permission(
+      strings = { Manifest.permission.WAKE_LOCK },
+      alias = "wakelock"
+    ),
   }
 )
 public class FirebaseCrashlytics extends Plugin {
@@ -41,12 +49,12 @@ public class FirebaseCrashlytics extends Plugin {
   @PluginMethod
   public void crash(PluginCall call) {
     if (!call.hasOption("message")) {
-      call.error("message property is missing");
+      call.reject("message property is missing");
       return;
     }
 
     String message = call.getString("message");
-    call.success();
+    call.resolve();
     throw new RuntimeException(message);
   }
 
@@ -58,7 +66,7 @@ public class FirebaseCrashlytics extends Plugin {
   @PluginMethod
   public void setContext(PluginCall call) {
     if (!call.hasOption("key") || !call.hasOption("value")) {
-      call.error(
+      call.reject(
         !call.hasOption("key")
           ? "key property is missing"
           : "value propery is missing"
@@ -106,7 +114,7 @@ public class FirebaseCrashlytics extends Plugin {
             .google.firebase.crashlytics.FirebaseCrashlytics.getInstance()
             .setCustomKey(key, call.getString("value"));
       }
-      call.success();
+      call.resolve();
     } catch (Exception ex) {
       Log.e(
         TAG,
@@ -123,7 +131,7 @@ public class FirebaseCrashlytics extends Plugin {
   @PluginMethod
   public void setUserId(PluginCall call) {
     if (!call.hasOption("userId")) {
-      call.error("userId is missing");
+      call.reject("userId is missing");
       return;
     }
 
@@ -131,7 +139,7 @@ public class FirebaseCrashlytics extends Plugin {
     com
       .google.firebase.crashlytics.FirebaseCrashlytics.getInstance()
       .setUserId(userId);
-    call.success();
+    call.resolve();
   }
 
   /**
@@ -141,7 +149,7 @@ public class FirebaseCrashlytics extends Plugin {
   @PluginMethod
   public void addLogMessage(PluginCall call) {
     if (!call.hasOption("message")) {
-      call.error("message property is missing");
+      call.reject("message property is missing");
       return;
     }
 
@@ -150,7 +158,7 @@ public class FirebaseCrashlytics extends Plugin {
     com
       .google.firebase.crashlytics.FirebaseCrashlytics.getInstance()
       .log(message);
-    call.success();
+    call.resolve();
   }
 
   /**
@@ -164,7 +172,7 @@ public class FirebaseCrashlytics extends Plugin {
     com
       .google.firebase.crashlytics.FirebaseCrashlytics.getInstance()
       .setCrashlyticsCollectionEnabled(enabled);
-    call.success();
+    call.resolve();
   }
 
   /**
@@ -174,7 +182,7 @@ public class FirebaseCrashlytics extends Plugin {
    */
   @PluginMethod
   public void isEnabled(PluginCall call) {
-    call.success(new JSObject().put("enabled", false));
+    call.resolve(new JSObject().put("enabled", false));
   }
 
   /**
@@ -184,7 +192,7 @@ public class FirebaseCrashlytics extends Plugin {
    */
   @PluginMethod
   public void didCrashDuringPreviousExecution(PluginCall call) {
-    call.success(
+    call.resolve(
       new JSObject()
       .put(
           "crashed",
@@ -205,7 +213,7 @@ public class FirebaseCrashlytics extends Plugin {
     com
       .google.firebase.crashlytics.FirebaseCrashlytics.getInstance()
       .sendUnsentReports();
-    call.success();
+    call.resolve();
   }
 
   /**
@@ -218,7 +226,7 @@ public class FirebaseCrashlytics extends Plugin {
     com
       .google.firebase.crashlytics.FirebaseCrashlytics.getInstance()
       .deleteUnsentReports();
-    call.success();
+    call.resolve();
   }
 
   /**
@@ -229,7 +237,7 @@ public class FirebaseCrashlytics extends Plugin {
   @PluginMethod
   public void recordException(PluginCall call) {
     if (!call.hasOption("message")) {
-      call.error("message property is missing");
+      call.reject("message property is missing");
       return;
     }
 
@@ -237,6 +245,6 @@ public class FirebaseCrashlytics extends Plugin {
     com
       .google.firebase.crashlytics.FirebaseCrashlytics.getInstance()
       .recordException(new Throwable(message));
-    call.success();
+    call.resolve();
   }
 }

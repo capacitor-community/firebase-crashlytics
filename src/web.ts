@@ -7,7 +7,8 @@ import {
   AndroidException,
 } from "./definitions";
 
-export class FirebaseCrashlyticsWeb extends WebPlugin
+export class FirebaseCrashlyticsWeb
+  extends WebPlugin
   implements FirebaseCrashlyticsPlugin {
   constructor() {
     super({
@@ -57,10 +58,3 @@ export class FirebaseCrashlyticsWeb extends WebPlugin
     throw new Error("Method not implemented.");
   }
 }
-
-const FirebaseCrashlytics = new FirebaseCrashlyticsWeb();
-
-export { FirebaseCrashlytics };
-
-import { registerWebPlugin } from "@capacitor/core";
-registerWebPlugin(FirebaseCrashlytics);
