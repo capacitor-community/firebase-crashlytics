@@ -52,23 +52,32 @@ On Android, add `firebase-crashlytics-gradle` to `build.gradle` and register the
 ```gradle
 buildscript {
   repositories {
+    // Check that you have Google's Maven repository (if not, add it).
     google()
-    jcenter()
   }
 
   dependencies {
-    ...
+    // Check that you have the Google Services Gradle plugin v4.3.2 or later
+    // (if not, add it).
+    classpath 'com.google.gms:google-services:4.3.5'
 
-    // Add the line below
-    classpath 'com.google.firebase:firebase-crashlytics-gradle:2.2.0'
+    // Add the Crashlytics Gradle plugin
+    classpath 'com.google.firebase:firebase-crashlytics-gradle:2.5.2'
   }
+}
+
+allprojects {
+    repositories {
+        // Check that you have Google's Maven repository (if not, add it).
+        google()
+    }
 }
 ```
 
 `build.gradle` (inside app directory):
 
 ```gradle
-// Add this at the bottom of the file
+// Apply the Crashlytics Gradle plugin
 apply plugin: 'com.google.firebase.crashlytics'
 ```
 
