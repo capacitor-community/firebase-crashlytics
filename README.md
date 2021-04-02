@@ -6,24 +6,22 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/maintenance/yes/2020?style=flat-square" />
+  <img src="https://img.shields.io/maintenance/yes/2021?style=flat-square" />
   <a href="https://github.com/capacitor-community/firebase-crashlytics/actions?query=workflow%3A%22Test+and+Build+Plugin%22"><img src="https://img.shields.io/github/workflow/status/capacitor-community/firebase-crashlytics/Test%20and%20Build%20Plugin?style=flat-square" /></a>
   <a href="https://www.npmjs.com/package/@capacitor-community/firebase-crashlytics"><img src="https://img.shields.io/npm/l/@capacitor-community/firebase-crashlytics?style=flat-square" /></a>
 <br>
   <a href="https://www.npmjs.com/package/@capacitor-community/firebase-crashlytics"><img src="https://img.shields.io/npm/dw/@capacitor-community/firebase-crashlytics?style=flat-square" /></a>
   <a href="https://www.npmjs.com/package/@capacitor-community/firebase-crashlytics"><img src="https://img.shields.io/npm/v/@capacitor-community/firebase-crashlytics?style=flat-square" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<a href="#contributors-"><img src="https://img.shields.io/badge/all%20contributors-3-orange?style=flat-square" /></a>
+<a href="#contributors-"><img src="https://img.shields.io/badge/all%20contributors-1-orange?style=flat-square" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 </p>
 
 ## Maintainers
 
-| Maintainer     | GitHub                                                  | Social                                           |
-| -------------- | ------------------------------------------------------- | ------------------------------------------------ |
-| Priyank Patel  | [priyankpat](https://github.com/priyankpat)             | [@priyankpat\_](https://twitter.com/priyankpat_) |
-| Stewan Silva   | [stewwan](https://github.com/stewwan)                   | [@StewanSilva](https://twitter.com/StewanSilva)  |
-| Daniel Pereira | [danielprrazevedo](https://github.com/danielprrazevedo) | [@DandanPrr](https://twitter.com/DandanPrr)      |
+| Maintainer | GitHub                                    | Social                                        |
+| ---------- | ----------------------------------------- | --------------------------------------------- |
+| Robin Genz | [robingenz](https://github.com/robingenz) | [@robin_genz](https://twitter.com/robin_genz) |
 
 ## Installation
 
@@ -54,23 +52,32 @@ On Android, add `firebase-crashlytics-gradle` to `build.gradle` and register the
 ```gradle
 buildscript {
   repositories {
+    // Check that you have Google's Maven repository (if not, add it).
     google()
-    jcenter()
   }
 
   dependencies {
-    ...
+    // Check that you have the Google Services Gradle plugin v4.3.2 or later
+    // (if not, add it).
+    classpath 'com.google.gms:google-services:4.3.5'
 
-    // Add the line below
-    classpath 'com.google.firebase:firebase-crashlytics-gradle:2.2.0'
+    // Add the Crashlytics Gradle plugin
+    classpath 'com.google.firebase:firebase-crashlytics-gradle:2.5.2'
   }
+}
+
+allprojects {
+    repositories {
+        // Check that you have Google's Maven repository (if not, add it).
+        google()
+    }
 }
 ```
 
 `build.gradle` (inside app directory):
 
 ```gradle
-// Add this at the bottom of the file
+// Apply the Crashlytics Gradle plugin
 apply plugin: 'com.google.firebase.crashlytics'
 ```
 

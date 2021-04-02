@@ -3,6 +3,7 @@ ext {
     androidxJunitVersion =  project.hasProperty('androidxJunitVersion') ? rootProject.ext.androidxJunitVersion : '1.1.2'
     androidxEspressoCoreVersion =  project.hasProperty('androidxEspressoCoreVersion') ? rootProject.ext.androidxEspressoCoreVersion : '3.3.0'
     androidxAppCompatVersion = project.hasProperty('androidxAppCompatVersion') ? rootProject.ext.androidxAppCompatVersion : '1.2.0'
+    firebaseCrashlyticsVersion = project.hasProperty('firebaseCrashlyticsVersion') ? rootProject.ext.firebaseCrashlyticsVersion : '17.4.1'
 }
 
 buildscript {
@@ -53,6 +54,5 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
     implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
-
-    implementation 'com.google.firebase:firebase-crashlytics:17.1.0'
+    implementation "com.google.firebase:firebase-crashlytics:$firebaseCrashlyticsVersion"
 }
