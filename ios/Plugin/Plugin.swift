@@ -7,7 +7,7 @@ import FirebaseCrashlytics
 public class FirebaseCrashlytics: CAPPlugin {
     
     public override func load() {
-        if (FirebaseApp.allApps?.count == 0 || FirebaseApp.allApps?.count == nil) {
+        if (FirebaseApp.app() == nil) {
             FirebaseApp.configure()
         }
     }
