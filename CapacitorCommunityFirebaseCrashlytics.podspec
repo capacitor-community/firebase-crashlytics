@@ -11,7 +11,5 @@
     s.ios.deployment_target  = '12.0'
     s.static_framework = true
     s.dependency 'Capacitor'
-    s.dependency 'Firebase'
-    s.dependency 'Firebase/Core'
     s.dependency 'Firebase/Crashlytics'
   end

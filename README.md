@@ -106,6 +106,7 @@ public class MainActivity extends BridgeActivity {
       );
   }
 }
+
 ```
 
 ## Configuration
@@ -258,6 +259,11 @@ FirebaseCrashlytics.sendUnsentReports();
  */
 FirebaseCrashlytics.deleteUnsentReports();
 ```
+
+## Test your implementation
+
+[Here](https://firebase.google.com/docs/crashlytics/force-a-crash) you can find more information on how to test the Firebase Crashlytics implementation.
+Among other things, you will find information on how to correctly [adjust the project's debug settings](https://firebase.google.com/docs/crashlytics/force-a-crash?platform=ios#adjust_your_projects_debug_settings) under iOS and how to [test it out](https://firebase.google.com/docs/crashlytics/force-a-crash?platform=ios#test_it_out).
 
 ## Enable Crashlytics debug logging
 
