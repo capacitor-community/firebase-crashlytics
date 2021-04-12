@@ -88,24 +88,14 @@ import com.getcapacitor.community.firebasecrashlytics.FirebaseCrashlytics;
 
 public class MainActivity extends BridgeActivity {
 
-  @Override
-  public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-
-    // Initializes the Bridge
-    this.init(
-        savedInstanceState,
-        new ArrayList<Class<? extends Plugin>>() {
-
-          {
-            // Additional plugins you've installed go here
-            // Ex: add(TotallyAwesomePlugin.class);
-            add(FirebaseCrashlytics.class);
-          }
-        }
-      );
-  }
+   @Override
+   public void onCreate(Bundle savedInstanceState) {
+     super.onCreate(savedInstanceState);
+     // add your plugins here
+     registerPlugin(FirebaseCrashlytics.class);
+   }
 }
+
 ```
 
 ## Configuration
@@ -144,9 +134,7 @@ git checkout -b firebase-crashlytics
 ## Usage
 
 ```typescript
-import { Plugins } from "@capacitor/core";
-
-const { FirebaseCrashlytics } = Plugins;
+import { FirebaseCrashlytics } from '@capacitor-community/firebase-crashlytics';
 
 /**
  * Platform: Android/iOS
