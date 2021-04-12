@@ -1,9 +1,3 @@
-declare module "@capacitor/core" {
-  interface PluginRegistry {
-    FirebaseCrashlytic: FirebaseCrashlyticsPlugin;
-  }
-}
-
 export interface FirebaseCrashlyticsPlugin {
   crash(options: { message: string }): Promise<void>;
   setContext(options: ContextOptions): Promise<void>;

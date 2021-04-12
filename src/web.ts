@@ -1,60 +1,55 @@
-import { WebPlugin } from "@capacitor/core";
+import { WebPlugin } from '@capacitor/core';
 
-import {
+import type {
   FirebaseCrashlyticsPlugin,
   ContextOptions,
   iOSException,
   AndroidException,
-} from "./definitions";
+} from './definitions';
 
 export class FirebaseCrashlyticsWeb
   extends WebPlugin
   implements FirebaseCrashlyticsPlugin {
-  constructor() {
-    super({
-      name: "FirebaseCrashlytic",
-      platforms: ["web"],
-    });
+  public async setUserId(_options: { userId: string }): Promise<void> {
+    throw this.unimplemented('Not implemented on web.');
   }
 
-  setUserId(_options: { userId: string }): Promise<void> {
-    return new Promise((resolve, _reject) => resolve);
+  public async addLogMessage(_options: { message: string }): Promise<void> {
+    throw this.unimplemented('Not implemented on web.');
   }
 
-  addLogMessage(_options: { message: string }): Promise<void> {
-    return new Promise((resolve, _reject) => resolve);
+  public async setEnabled(_options: { enabled: boolean }): Promise<void> {
+    throw this.unimplemented('Not implemented on web.');
   }
 
-  setEnabled(_options: { enabled: boolean }): Promise<void> {
-    return new Promise((resolve, _reject) => resolve);
+  public async crash(): Promise<void> {
+    throw this.unimplemented('Not implemented on web.');
   }
 
-  crash(): Promise<void> {
-    throw new Error("Method not implemented.");
-  }
-
-  setContext(options: ContextOptions): Promise<void> {
+  public async setContext(options: ContextOptions): Promise<void> {
     console.log(options);
-    return new Promise((resolve, _reject) => resolve);
+    throw this.unimplemented('Not implemented on web.');
   }
 
-  isEnabled(): Promise<{ enabled: boolean }> {
-    throw new Error("Method not implemented.");
+  public async isEnabled(): Promise<{ enabled: boolean }> {
+    throw this.unimplemented('Not implemented on web.');
   }
 
-  didCrashDuringPreviousExecution(): Promise<{ crashed: boolean }> {
-    throw new Error("Method not implemented.");
+  public async didCrashDuringPreviousExecution(): Promise<{ crashed: boolean }> {
+    throw this.unimplemented('Not implemented on web.');
   }
 
-  sendUnsentReports(): Promise<void> {
-    throw new Error("Method not implemented.");
+  public async sendUnsentReports(): Promise<void> {
+    throw this.unimplemented('Not implemented on web.');
   }
 
-  deleteUnsentReports(): Promise<void> {
-    throw new Error("Method not implemented.");
+  public async deleteUnsentReports(): Promise<void> {
+    throw this.unimplemented('Not implemented on web.');
   }
 
-  recordException(_options: iOSException | AndroidException): Promise<void> {
-    throw new Error("Method not implemented.");
+  public async recordException(
+    _options: iOSException | AndroidException,
+  ): Promise<void> {
+    throw this.unimplemented('Not implemented on web.');
   }
 }
