@@ -14,7 +14,7 @@ export interface FirebaseCrashlyticsPlugin {
 export interface ContextOptions {
   key: string;
   value: string | number | boolean;
-  type: "string" | "long" | "double" | "boolean" | "int" | "float";
+  type: 'string' | 'long' | 'double' | 'boolean' | 'int' | 'float';
 }
 
 export interface iOSException {
