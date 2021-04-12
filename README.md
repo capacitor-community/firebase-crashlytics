@@ -55,13 +55,210 @@ import { FirebaseCrashlytics } from '@capacitor-community/firebase-crashlytics';
 
 <docgen-index>
 
+* [`crash(...)`](#crash)
+* [`setContext(...)`](#setcontext)
+* [`setUserId(...)`](#setuserid)
+* [`addLogMessage(...)`](#addlogmessage)
+* [`setEnabled(...)`](#setenabled)
+* [`isEnabled()`](#isenabled)
+* [`didCrashDuringPreviousExecution()`](#didcrashduringpreviousexecution)
+* [`sendUnsentReports()`](#sendunsentreports)
+* [`deleteUnsentReports()`](#deleteunsentreports)
+* [`recordException(...)`](#recordexception)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
+### crash(...)
 
+```typescript
+crash(options: { message: string; }) => Promise<void>
+```
+
+Forces a crash to test the implementation.
+
+Only available for Android and iOS.
+
+| Param         | Type                              |
+| ------------- | --------------------------------- |
+| **`options`** | <code>{ message: string; }</code> |
+
+--------------------
+
+
+### setContext(...)
+
+```typescript
+setContext(options: ContextOptions) => Promise<void>
+```
+
+Sets a custom key and value that is associated with subsequent fatal and non-fatal reports.
+
+Only available for Android and iOS.
+
+| Param         | Type                                                      |
+| ------------- | --------------------------------------------------------- |
+| **`options`** | <code><a href="#contextoptions">ContextOptions</a></code> |
+
+--------------------
+
+
+### setUserId(...)
+
+```typescript
+setUserId(options: { userId: string; }) => Promise<void>
+```
+
+Sets a user ID (identifier) that is associated with subsequent fatal and non-fatal reports.
+
+Only available for Android and iOS.
+
+| Param         | Type                             |
+| ------------- | -------------------------------- |
+| **`options`** | <code>{ userId: string; }</code> |
+
+--------------------
+
+
+### addLogMessage(...)
+
+```typescript
+addLogMessage(options: { message: string; }) => Promise<void>
+```
+
+Adds a log message that is sent with your crash data.
+Only visible in the Crashlytics dashboard.
+
+Only available for Android and iOS.
+
+| Param         | Type                              |
+| ------------- | --------------------------------- |
+| **`options`** | <code>{ message: string; }</code> |
+
+--------------------
+
+
+### setEnabled(...)
+
+```typescript
+setEnabled(options: { enabled: boolean; }) => Promise<void>
+```
+
+Enables/disables automatic data collection.
+The value does not apply until the next run of the app.
+
+Only available for Android and iOS.
+
+| Param         | Type                               |
+| ------------- | ---------------------------------- |
+| **`options`** | <code>{ enabled: boolean; }</code> |
+
+--------------------
+
+
+### isEnabled()
+
+```typescript
+isEnabled() => Promise<{ enabled: boolean; }>
+```
+
+Returns whether or not automatic data collection is enabled.
+
+Only available for iOS.
+
+**Returns:** <code>Promise&lt;{ enabled: boolean; }&gt;</code>
+
+--------------------
+
+
+### didCrashDuringPreviousExecution()
+
+```typescript
+didCrashDuringPreviousExecution() => Promise<{ crashed: boolean; }>
+```
+
+Returns whether the app crashed during the previous execution.
+
+Only available for Android and iOS.
+
+**Returns:** <code>Promise&lt;{ crashed: boolean; }&gt;</code>
+
+--------------------
+
+
+### sendUnsentReports()
+
+```typescript
+sendUnsentReports() => Promise<void>
+```
+
+Uploads any unsent reports to Crashlytics.
+When automatic data collection is enabled, Crashlytics automatically uploads reports at startup.
+
+Only available for Android and iOS.
+
+--------------------
+
+
+### deleteUnsentReports()
+
+```typescript
+deleteUnsentReports() => Promise<void>
+```
+
+Deletes any unsent reports on the device.
+
+Only available for Android and iOS.
+
+--------------------
+
+
+### recordException(...)
+
+```typescript
+recordException(options: iOSException | AndroidException) => Promise<void>
+```
+
+Records a non-fatal report to send to Crashlytics.
+
+Only available for Android and iOS.
+
+| Param         | Type                                                                                                      |
+| ------------- | --------------------------------------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#iosexception">iOSException</a> \| <a href="#androidexception">AndroidException</a></code> |
+
+--------------------
+
+
+### Interfaces
+
+
+#### ContextOptions
+
+| Prop        | Type                                                                         |
+| ----------- | ---------------------------------------------------------------------------- |
+| **`key`**   | <code>string</code>                                                          |
+| **`value`** | <code>string \| number \| boolean</code>                                     |
+| **`type`**  | <code>'string' \| 'boolean' \| 'long' \| 'double' \| 'int' \| 'float'</code> |
+
+
+#### iOSException
+
+| Prop          | Type                |
+| ------------- | ------------------- |
+| **`code`**    | <code>number</code> |
+| **`domain`**  | <code>string</code> |
+| **`message`** | <code>string</code> |
+
+
+#### AndroidException
+
+| Prop          | Type                |
+| ------------- | ------------------- |
+| **`message`** | <code>string</code> |
 
 </docgen-api>
 
