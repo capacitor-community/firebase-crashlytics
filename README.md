@@ -247,16 +247,16 @@ Only available for Android and iOS.
 ### recordException(...)
 
 ```typescript
-recordException(options: iOSException | AndroidException) => Promise<void>
+recordException(options: RecordExceptionOptions) => Promise<void>
 ```
 
 Records a non-fatal report to send to Crashlytics.
 
 Only available for Android and iOS.
 
-| Param         | Type                                                                                                      |
-| ------------- | --------------------------------------------------------------------------------------------------------- |
-| **`options`** | <code><a href="#iosexception">iOSException</a> \| <a href="#androidexception">AndroidException</a></code> |
+| Param         | Type                                                                      |
+| ------------- | ------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#recordexceptionoptions">RecordExceptionOptions</a></code> |
 
 --------------------
 
@@ -273,20 +273,13 @@ Only available for Android and iOS.
 | **`type`**  | <code>'string' \| 'boolean' \| 'long' \| 'double' \| 'int' \| 'float'</code> |
 
 
-#### iOSException
+#### RecordExceptionOptions
 
-| Prop          | Type                |
-| ------------- | ------------------- |
-| **`code`**    | <code>number</code> |
-| **`domain`**  | <code>string</code> |
-| **`message`** | <code>string</code> |
-
-
-#### AndroidException
-
-| Prop          | Type                |
-| ------------- | ------------------- |
-| **`message`** | <code>string</code> |
+| Prop          | Type                | Description                                                        |
+| ------------- | ------------------- | ------------------------------------------------------------------ |
+| **`message`** | <code>string</code> |                                                                    |
+| **`code`**    | <code>number</code> | Error code within a specific error domain. Only available for iOS. |
+| **`domain`**  | <code>string</code> | A string containing the error domain. Only available for iOS.      |
 
 </docgen-api>
 
