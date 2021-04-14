@@ -149,7 +149,7 @@ public class FirebaseCrashlyticsPlugin extends Plugin {
      */
     @PluginMethod
     public void isEnabled(PluginCall call) {
-        call.unimplemented("Not implemented on Android.");
+        call.resolve(new JSObject().put("enabled", false));
     }
 
     /**
