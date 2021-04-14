@@ -1,22 +1,15 @@
-import { WebPlugin } from "@capacitor/core";
+import { WebPlugin } from '@capacitor/core';
 
-import {
+import type {
   FirebaseCrashlyticsPlugin,
   ContextOptions,
   iOSException,
   AndroidException,
-} from "./definitions";
+} from './definitions';
 
 export class FirebaseCrashlyticsWeb
   extends WebPlugin
   implements FirebaseCrashlyticsPlugin {
-  constructor() {
-    super({
-      name: "FirebaseCrashlytic",
-      platforms: ["web"],
-    });
-  }
-
   setUserId(_options: { userId: string }): Promise<void> {
     return new Promise((resolve, _reject) => resolve);
   }
@@ -30,7 +23,7 @@ export class FirebaseCrashlyticsWeb
   }
 
   crash(): Promise<void> {
-    throw new Error("Method not implemented.");
+    throw new Error('Method not implemented.');
   }
 
   setContext(options: ContextOptions): Promise<void> {
@@ -39,22 +32,22 @@ export class FirebaseCrashlyticsWeb
   }
 
   isEnabled(): Promise<{ enabled: boolean }> {
-    throw new Error("Method not implemented.");
+    throw new Error('Method not implemented.');
   }
 
   didCrashDuringPreviousExecution(): Promise<{ crashed: boolean }> {
-    throw new Error("Method not implemented.");
+    throw new Error('Method not implemented.');
   }
 
   sendUnsentReports(): Promise<void> {
-    throw new Error("Method not implemented.");
+    throw new Error('Method not implemented.');
   }
 
   deleteUnsentReports(): Promise<void> {
-    throw new Error("Method not implemented.");
+    throw new Error('Method not implemented.');
   }
 
   recordException(_options: iOSException | AndroidException): Promise<void> {
-    throw new Error("Method not implemented.");
+    throw new Error('Method not implemented.');
   }
 }

@@ -3,7 +3,7 @@
 
 // Define the plugin using the CAP_PLUGIN Macro, and
 // each method the plugin supports using the CAP_PLUGIN_METHOD macro.
-CAP_PLUGIN(FirebaseCrashlytics, "FirebaseCrashlytics",
+CAP_PLUGIN(FirebaseCrashlyticsPlugin, "FirebaseCrashlytics",
            CAP_PLUGIN_METHOD(crash, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(setContext, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(addLogMessage, CAPPluginReturnPromise);

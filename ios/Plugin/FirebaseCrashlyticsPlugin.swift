@@ -3,8 +3,12 @@ import Capacitor
 import FirebaseCore
 import FirebaseCrashlytics
 
-@objc(FirebaseCrashlytics)
-public class FirebaseCrashlytics: CAPPlugin {
+/**
+ * Please read the Capacitor iOS Plugin Development Guide
+ * here: https://capacitorjs.com/docs/plugins/ios
+ */
+@objc(FirebaseCrashlyticsPlugin)
+public class FirebaseCrashlyticsPlugin: CAPPlugin {
     
     public override func load() {
         if (FirebaseApp.app() == nil) {
