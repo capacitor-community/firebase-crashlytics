@@ -48,7 +48,35 @@ No configuration required for this plugin.
 ```typescript
 import { FirebaseCrashlytics } from '@capacitor-community/firebase-crashlytics';
 
-// WIP
+const crash = async () => {
+  await FirebaseCrashlytics.crash({ message: 'Test' });
+};
+
+const recordException = async () => {
+  await FirebaseCrashlytics.recordException({
+    message: "This is a non-fatal message.",
+  });
+};
+
+const setUserId = async () => {
+  await FirebaseCrashlytics.setUserId({
+    userId: "123",
+  });
+};
+
+const addLogMessage = async () => {
+  await FirebaseCrashlytics.addLogMessage({
+    message: "Test",
+  });
+};
+
+const sendUnsentReports = async () => {
+  await FirebaseCrashlytics.sendUnsentReports();
+};
+
+const deleteUnsentReports = async () => {
+  await FirebaseCrashlytics.deleteUnsentReports();
+};
 ```
 
 ## API
@@ -261,6 +289,11 @@ Only available for Android and iOS.
 | **`message`** | <code>string</code> |
 
 </docgen-api>
+
+## Test your implementation
+
+[Here](https://firebase.google.com/docs/crashlytics/force-a-crash) you can find more information on how to test the Firebase Crashlytics implementation.
+Among other things, you will find information on how to correctly [adjust the project's debug settings](https://firebase.google.com/docs/crashlytics/force-a-crash?platform=ios#adjust_your_projects_debug_settings) under iOS and how to [test it out](https://firebase.google.com/docs/crashlytics/force-a-crash?platform=ios#test_it_out).
 
 ## Changelog
 
