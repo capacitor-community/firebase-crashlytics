@@ -3,8 +3,7 @@ import { WebPlugin } from '@capacitor/core';
 import type {
   FirebaseCrashlyticsPlugin,
   ContextOptions,
-  iOSException,
-  AndroidException,
+  RecordExceptionOptions,
 } from './definitions';
 
 export class FirebaseCrashlyticsWeb
@@ -50,7 +49,7 @@ export class FirebaseCrashlyticsWeb
   }
 
   public async recordException(
-    _options: iOSException | AndroidException,
+    _options: RecordExceptionOptions,
   ): Promise<void> {
     throw this.unimplemented('Not implemented on web.');
   }

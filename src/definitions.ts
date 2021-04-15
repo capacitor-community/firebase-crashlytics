@@ -61,7 +61,7 @@ export interface FirebaseCrashlyticsPlugin {
    *
    * Only available for Android and iOS.
    */
-  recordException(options: iOSException | AndroidException): Promise<void>;
+  recordException(options: RecordExceptionOptions): Promise<void>;
 }
 
 export interface ContextOptions {
@@ -70,12 +70,18 @@ export interface ContextOptions {
   type: 'string' | 'long' | 'double' | 'boolean' | 'int' | 'float';
 }
 
-export interface iOSException {
+export interface RecordExceptionOptions {
+  message: string;
+  /**
+   * Error code within a specific error domain.
+   *
+   * Only available for iOS.
+   */
   code?: number;
+  /**
+   * A string containing the error domain.
+   *
+   * Only available for iOS.
+   */
   domain?: string;
-  message: string;
-}
-
-export interface AndroidException {
-  message: string;
 }
