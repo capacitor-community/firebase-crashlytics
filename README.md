@@ -36,6 +36,13 @@ Add Firebase to your project if you haven't already ([Android](https://firebase.
 
 See [Add Firebase Crashlytics to your app](https://firebase.google.com/docs/crashlytics/get-started?platform=android#add-sdk) and follow the instructions to set up your app correctly.
 
+### iOS
+
+See [Add Firebase Crashlytics to your app](https://firebase.google.com/docs/crashlytics/get-started?platform=ios#add-sdk) and follow the instructions to set up your app correctly.
+
+Important: Do not attach a debugger at launch. It may happen that the dSYM files are not uploaded automatically. However, this does not prevent the crash from being displayed in Crashlytics.
+
+
 #### Variables
 
 This plugin will use the following project variables (defined in your app’s `variables.gradle` file):
