@@ -30,6 +30,8 @@ npm install @capacitor-community/firebase-crashlytics
 npx cap sync
 ```
 
+Add Firebase to your project if you haven't already ([Android](https://firebase.google.com/docs/android/setup) / [iOS](https://firebase.google.com/docs/ios/setup)).
+
 ### Android
 
 See [Add Firebase Crashlytics to your app](https://firebase.google.com/docs/crashlytics/get-started?platform=android#add-sdk) and follow the instructions to set up your app correctly.
