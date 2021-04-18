@@ -1,7 +1,5 @@
 import Foundation
 import Capacitor
-import FirebaseCore
-import FirebaseCrashlytics
 
 /**
  * Please read the Capacitor iOS Plugin Development Guide
@@ -22,7 +20,7 @@ public class FirebaseCrashlyticsPlugin: CAPPlugin {
     
     @objc func crash(_ call: CAPPluginCall) {
         call.resolve()
-        implementation?.crash(traceName)
+        implementation?.crash()
     }
     
     @objc func setContext(_ call: CAPPluginCall) {
@@ -30,7 +28,8 @@ public class FirebaseCrashlyticsPlugin: CAPPlugin {
             call.reject(errorKeyMissing)
             return;
         }
-        guard let hasValue = call.hasOption("value") else {
+        let hasValue = call.hasOption("value")
+        if hasValue == false {
             call.reject(errorValueMissing)
             return;
         }
@@ -69,14 +68,14 @@ public class FirebaseCrashlyticsPlugin: CAPPlugin {
     @objc func isEnabled(_ call: CAPPluginCall) {
         let enabled = implementation?.isEnabled()
         call.resolve([
-            "enabled": enabled
+            "enabled": enabled ?? false
         ])
     }
     
     @objc func didCrashDuringPreviousExecution(_ call: CAPPluginCall) {
         let crashed = implementation?.didCrashDuringPreviousExecution()
         call.resolve([
-            "crashed": crashed
+            "crashed": crashed ?? false
         ])
     }
     

@@ -1,4 +1,7 @@
 import Foundation
+import Capacitor
+import FirebaseCore
+import FirebaseCrashlytics
 
 @objc public class FirebaseCrashlytics: NSObject {
     override init() {
@@ -14,31 +17,31 @@ import Foundation
     @objc func setContext(_ key: String, _ type: String, _ call: CAPPluginCall) {
         switch type {
         case "string":
-            Crashlytics.crashlytics().setCustomValue(call.getString("value") as Any, forKey: key!)
+            Crashlytics.crashlytics().setCustomValue(call.getString("value") as Any, forKey: key)
             break
             
         case "int":
-            Crashlytics.crashlytics().setCustomValue(call.getInt("value") as Any, forKey: key!)
+            Crashlytics.crashlytics().setCustomValue(call.getInt("value") as Any, forKey: key)
             break
             
         case "boolean":
-            Crashlytics.crashlytics().setCustomValue(call.getBool("value") as Any, forKey: key!)
+            Crashlytics.crashlytics().setCustomValue(call.getBool("value") as Any, forKey: key)
             break
             
         case "long":
-            Crashlytics.crashlytics().setCustomValue(call.getInt("value") as Any, forKey: key!)
+            Crashlytics.crashlytics().setCustomValue(call.getInt("value") as Any, forKey: key)
             break
             
         case "double":
-            Crashlytics.crashlytics().setCustomValue(call.getDouble("value") as Any, forKey: key!)
+            Crashlytics.crashlytics().setCustomValue(call.getDouble("value") as Any, forKey: key)
             break
             
         case "float":
-            Crashlytics.crashlytics().setCustomValue(call.getFloat("value") as Any, forKey: key!)
+            Crashlytics.crashlytics().setCustomValue(call.getFloat("value") as Any, forKey: key)
             break
             
         default:
-            Crashlytics.crashlytics().setCustomValue(call.getString("value") as Any, forKey: key!)
+            Crashlytics.crashlytics().setCustomValue(call.getString("value") as Any, forKey: key)
         }
     }
 
@@ -46,7 +49,7 @@ import Foundation
         Crashlytics.crashlytics().log(message)
     }
 
-    @objc func addLogMessage(_ userId: String) {
+    @objc func setUserID(_ userId: String) {
         Crashlytics.crashlytics().setUserID(userId)
     }
 
@@ -71,7 +74,8 @@ import Foundation
     }
 
     @objc func recordException(_ message: String, _ domain: String, _ code: Int) {
-        let error = NSError((domain: domain, code: code, userInfo: [ NSLocalizedDescriptionKey: message]))
+        let userInfo = [NSLocalizedDescriptionKey: message]
+        let error = NSError(domain: domain, code: code, userInfo: userInfo)
         Crashlytics.crashlytics().record(error: error)
     }
 }
