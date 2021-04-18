@@ -68,14 +68,14 @@ public class FirebaseCrashlyticsPlugin: CAPPlugin {
     @objc func isEnabled(_ call: CAPPluginCall) {
         let enabled = implementation?.isEnabled()
         call.resolve([
-            "enabled": enabled ?? false
+            "enabled": enabled!
         ])
     }
     
     @objc func didCrashDuringPreviousExecution(_ call: CAPPluginCall) {
         let crashed = implementation?.didCrashDuringPreviousExecution()
         call.resolve([
-            "crashed": crashed ?? false
+            "crashed": crashed!
         ])
     }
     
