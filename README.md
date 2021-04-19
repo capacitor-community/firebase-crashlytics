@@ -41,6 +41,10 @@ See [Add Firebase Crashlytics to your app](https://firebase.google.com/docs/cras
 This plugin will use the following project variables (defined in your app’s `variables.gradle` file):
 - `$firebaseCrashlyticsVersion` version of `com.google.firebase:firebase-crashlytics` (default: `17.4.1`)
 
+### iOS
+
+See [Initialize Crashlytics](https://firebase.google.com/docs/crashlytics/get-started?platform=ios#initialize-crashlytics) and follow the instructions to initialize Crashlytics correctly.
+
 ## Configuration
 
 No configuration required for this plugin.
@@ -289,6 +293,8 @@ Only available for Android and iOS.
 
 [Here](https://firebase.google.com/docs/crashlytics/force-a-crash) you can find more information on how to test the Firebase Crashlytics implementation.
 Among other things, you will find information on how to correctly [adjust the project's debug settings](https://firebase.google.com/docs/crashlytics/force-a-crash?platform=ios#adjust_your_projects_debug_settings) under iOS and how to [test it out](https://firebase.google.com/docs/crashlytics/force-a-crash?platform=ios#test_it_out).
+
+If you get obfuscated crash reports for iOS, make sure you have [initialized Crashlytics](https://firebase.google.com/docs/crashlytics/get-started?platform=ios#initialize-crashlytics)) correctly and take a look at [this](https://firebase.google.com/docs/crashlytics/get-deobfuscated-reports?platform=ios).
 
 ## Changelog
 
