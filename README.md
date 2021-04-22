@@ -49,6 +49,10 @@ See [Initialize Crashlytics](https://firebase.google.com/docs/crashlytics/get-st
 
 No configuration required for this plugin.
 
+## Demo
+
+A working example can be found here: [robingenz/capacitor-plugin-demo](https://github.com/robingenz/capacitor-plugin-demo)
+
 ## Usage
 
 ```typescript
