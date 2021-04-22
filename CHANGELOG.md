@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/capacitor-community/firebase-crashlytics/compare/v0.4.0...v1.0.0) (2021-04-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* replace `iOSException` and `AndroidException` with `RecordExceptionOptions`
+* **android:** throw unimplemented error for `isEnabled` on Android
+* **web:** throw unimplemented error on web
+* Update to Capacitor 3
+
+
+### Features
+
+* add Capacitor 3 support ([#23](https://github.com/capacitor-community/firebase-crashlytics/issues/23)) ([98cf63c](https://github.com/capacitor-community/firebase-crashlytics/commit/98cf63c1eb431d9d5a52ebacd314f4fd5c63df5e))
+
+
+* replace `iOSException` and `AndroidException` ([#29](https://github.com/capacitor-community/firebase-crashlytics/issues/29)) ([80289a9](https://github.com/capacitor-community/firebase-crashlytics/commit/80289a9af1270bfc5329cdc4e8c79c9cff53bbbc))
+* **android:** throw unimplemented error ([#28](https://github.com/capacitor-community/firebase-crashlytics/issues/28)) ([c18321b](https://github.com/capacitor-community/firebase-crashlytics/commit/c18321be46e912223529cdb8e5a54bcac68c5ba4))
+* **web:** throw unimplemented error ([#27](https://github.com/capacitor-community/firebase-crashlytics/issues/27)) ([4127e0a](https://github.com/capacitor-community/firebase-crashlytics/commit/4127e0ac58655d55361edc7707e8ed600f17505d))
+
 ## [0.4.0](https://github.com/capacitor-community/firebase-crashlytics/compare/v0.3.0...v0.4.0) (2021-04-11)
 
 
