@@ -62,22 +62,40 @@ const crash = async () => {
   await FirebaseCrashlytics.crash({ message: 'Test' });
 };
 
-const recordException = async () => {
-  await FirebaseCrashlytics.recordException({
-    message: "This is a non-fatal message.",
+const setContext = async () => {
+  await FirebaseCrashlytics.setContext({ 
+    key: 'page',
+    value: 'home',
+    type: 'string'
   });
 };
 
 const setUserId = async () => {
   await FirebaseCrashlytics.setUserId({
-    userId: "123",
+    userId: '123'
   });
 };
 
 const addLogMessage = async () => {
   await FirebaseCrashlytics.addLogMessage({
-    message: "Test",
+    message: 'Test'
   });
+};
+
+const setEnabled = async () => {
+  await FirebaseCrashlytics.setEnabled({
+    enabled: true,
+  });
+};
+
+const isEnabled = async () => {
+  const result = await FirebaseCrashlytics.isEnabled();
+  return result.enabled;
+};
+
+const didCrashDuringPreviousExecution = async () => {
+  const result = await FirebaseCrashlytics.didCrashDuringPreviousExecution();
+  return result.crashed;
 };
 
 const sendUnsentReports = async () => {
@@ -86,6 +104,12 @@ const sendUnsentReports = async () => {
 
 const deleteUnsentReports = async () => {
   await FirebaseCrashlytics.deleteUnsentReports();
+};
+
+const recordException = async () => {
+  await FirebaseCrashlytics.recordException({
+    message: 'This is a non-fatal message.'
+  });
 };
 ```
 
