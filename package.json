@@ -14,11 +14,11 @@
   "author": "Priyank Patel <priyank.patel@stackspace.ca>",
   "license": "MIT",
   "dependencies": {
-    "@capacitor/core": "latest"
+    "@capacitor/core": "^2.4.8"
   },
   "devDependencies": {
-    "@capacitor/android": "latest",
-    "@capacitor/ios": "latest",
+    "@capacitor/android": "^2.4.8",
+    "@capacitor/ios": "^2.4.8",
     "husky": "^4.2.5",
     "prettier": "^2.0.5",
     "prettier-plugin-java": "^0.8.0",
