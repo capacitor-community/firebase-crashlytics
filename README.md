@@ -34,7 +34,7 @@ Add Firebase to your project if you haven't already ([Android](https://firebase.
 
 ### Android
 
-See [Add Firebase Crashlytics to your app](https://firebase.google.com/docs/crashlytics/get-started?platform=android#add-sdk) and follow the instructions to set up your app correctly.
+See [Add the Firebase Crashlytics plugin to your app](https://firebase.google.com/docs/crashlytics/get-started?platform=android#add-plugin) and follow the instructions to set up your app correctly.
 
 #### Variables
 
@@ -43,7 +43,7 @@ This plugin will use the following project variables (defined in your app’s `v
 
 ### iOS
 
-See [Initialize Crashlytics](https://firebase.google.com/docs/crashlytics/get-started?platform=ios#initialize-crashlytics) and follow the instructions to initialize Crashlytics correctly.
+See [Set up Xcode to automatically upload dSYM files](https://firebase.google.com/docs/crashlytics/get-started?platform=ios#set-up-dsym-uploading) and follow the instructions to set up Xcode correctly.
 
 ## Configuration
 
