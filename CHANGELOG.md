@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/capacitor-community/firebase-crashlytics/compare/v1.0.0...v1.1.0) (2021-07-23)
+
+
+### Features
+
+* **android:** update `com.google.firebase:firebase-crashlytics` to `18.1.0` ([#45](https://github.com/capacitor-community/firebase-crashlytics/issues/45)) ([fc6a97f](https://github.com/capacitor-community/firebase-crashlytics/commit/fc6a97f26b8704ffb7a6aead9d0f102b6acfe645))
+* **ios:** update `Firebase/Crashlytics` to `8.4.0` ([#46](https://github.com/capacitor-community/firebase-crashlytics/issues/46)) ([dab35e1](https://github.com/capacitor-community/firebase-crashlytics/commit/dab35e102b8dfcfa1e3b1f18afad8ebe52d1de1e))
+
 ## [1.0.0](https://github.com/capacitor-community/firebase-crashlytics/compare/v0.4.0...v1.0.0) (2021-04-22)
 
 
