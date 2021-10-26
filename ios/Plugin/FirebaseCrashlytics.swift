@@ -19,27 +19,27 @@ import FirebaseCrashlytics
         case "string":
             Crashlytics.crashlytics().setCustomValue(call.getString("value") as Any, forKey: key)
             break
-            
+
         case "int":
             Crashlytics.crashlytics().setCustomValue(call.getInt("value") as Any, forKey: key)
             break
-            
+
         case "boolean":
             Crashlytics.crashlytics().setCustomValue(call.getBool("value") as Any, forKey: key)
             break
-            
+
         case "long":
             Crashlytics.crashlytics().setCustomValue(call.getInt("value") as Any, forKey: key)
             break
-            
+
         case "double":
             Crashlytics.crashlytics().setCustomValue(call.getDouble("value") as Any, forKey: key)
             break
-            
+
         case "float":
             Crashlytics.crashlytics().setCustomValue(call.getFloat("value") as Any, forKey: key)
             break
-            
+
         default:
             Crashlytics.crashlytics().setCustomValue(call.getString("value") as Any, forKey: key)
         }
@@ -77,5 +77,23 @@ import FirebaseCrashlytics
         let userInfo = [NSLocalizedDescriptionKey: message]
         let error = NSError(domain: domain, code: code, userInfo: userInfo)
         Crashlytics.crashlytics().record(error: error)
+    }
+
+    func recordExceptionWithStacktrace(_ message: String, _ stacktrace: [JSObject]) {
+        let name = "Uncaught JavaScript exception"
+        let error = ExceptionModel(name: name, reason: message)
+
+        var customFrames: [StackFrame] = []
+        for stackFrame in stacktrace {
+            let functionName = (stackFrame["functionName"] as? String) ?? "(anonymous function)"
+            let fileName = (stackFrame["fileName"] as? String) ?? "(unknown file)"
+            let line = (stackFrame["lineNumber"] as? Int) ?? -1
+
+            let customFrame = StackFrame(symbol: functionName, file: fileName, line: line)
+            customFrames.append(customFrame)
+        }
+        error.stackTrace = customFrames
+
+        Crashlytics.crashlytics().record(exceptionModel: error)
     }
 }
