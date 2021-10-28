@@ -1,14 +1,13 @@
 package com.getcapacitor.community.firebasecrashlytics;
 
 import com.getcapacitor.JSArray;
-
+import java.util.Arrays;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Arrays;
-
 public class JavaScriptException extends Exception {
+
     public JavaScriptException(String message) {
         super(message);
     }
@@ -27,12 +26,13 @@ public class JavaScriptException extends Exception {
         for (int i = 0; i < stackTrace.length(); i++) {
             JSONObject elem = stackTrace.getJSONObject(i);
 
-            trace[i] = new StackTraceElement(
+            trace[i] =
+                new StackTraceElement(
                     "",
                     elem.optString("functionName", "(anonymous function)"),
                     elem.optString("fileName", "(unknown file)"),
                     elem.optInt("lineNumber", -1)
-            );
+                );
         }
 
         this.setStackTrace(trace);

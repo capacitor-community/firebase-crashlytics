@@ -1,7 +1,6 @@
 package com.getcapacitor.community.firebasecrashlytics;
 
 import android.Manifest;
-
 import com.getcapacitor.JSArray;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
@@ -9,7 +8,6 @@ import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
 import com.getcapacitor.annotation.Permission;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 

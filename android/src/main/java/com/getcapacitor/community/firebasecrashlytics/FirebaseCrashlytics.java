@@ -2,7 +2,6 @@ package com.getcapacitor.community.firebasecrashlytics;
 
 import com.getcapacitor.JSArray;
 import com.getcapacitor.PluginCall;
-
 import org.json.JSONException;
 
 public class FirebaseCrashlytics {
