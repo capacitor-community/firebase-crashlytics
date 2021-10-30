@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/capacitor-community/firebase-crashlytics/compare/v1.1.0...v1.2.0) (2021-10-30)
+
+
+### Features
+
+* add `stacktrace` to `recordException` ([#50](https://github.com/capacitor-community/firebase-crashlytics/issues/50)) ([a4a3a94](https://github.com/capacitor-community/firebase-crashlytics/commit/a4a3a944dd139a91dd1796cbd947e4da061b272b))
+
 ## [1.1.0](https://github.com/capacitor-community/firebase-crashlytics/compare/v1.0.0...v1.1.0) (2021-07-23)
 
 
