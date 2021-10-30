@@ -13,16 +13,16 @@ public class FirebaseCrashlyticsPlugin: CAPPlugin {
     public let errorUserIdMissing = "userId must be provided.";
     public let errorEnabledMissing = "enabled must be provided.";
     private var implementation: FirebaseCrashlytics?
-    
+
     public override func load() {
         implementation = FirebaseCrashlytics()
     }
-    
+
     @objc func crash(_ call: CAPPluginCall) {
         call.resolve()
         implementation?.crash()
     }
-    
+
     @objc func setContext(_ call: CAPPluginCall) {
         guard let key = call.getString("key") else {
             call.reject(errorKeyMissing)
@@ -37,7 +37,7 @@ public class FirebaseCrashlyticsPlugin: CAPPlugin {
         implementation?.setContext(key, type, call)
         call.resolve()
     }
-    
+
     @objc func addLogMessage(_ call: CAPPluginCall) {
         guard let message = call.getString("message") else {
             call.reject(errorMessageMissing)
@@ -46,7 +46,7 @@ public class FirebaseCrashlyticsPlugin: CAPPlugin {
         implementation?.addLogMessage(message)
         call.resolve()
     }
-    
+
     @objc func setUserId(_ call: CAPPluginCall) {
         guard let userId = call.getString("userId") else {
             call.reject(errorUserIdMissing)
@@ -64,39 +64,46 @@ public class FirebaseCrashlyticsPlugin: CAPPlugin {
         implementation?.setEnabled(enabled)
         call.resolve()
     }
-    
+
     @objc func isEnabled(_ call: CAPPluginCall) {
         let enabled = implementation?.isEnabled()
         call.resolve([
             "enabled": enabled!
         ])
     }
-    
+
     @objc func didCrashDuringPreviousExecution(_ call: CAPPluginCall) {
         let crashed = implementation?.didCrashDuringPreviousExecution()
         call.resolve([
             "crashed": crashed!
         ])
     }
-    
+
     @objc func sendUnsentReports(_ call: CAPPluginCall) {
         implementation?.sendUnsentReports()
         call.resolve()
     }
-    
+
     @objc func deleteUnsentReports(_ call: CAPPluginCall) {
         implementation?.deleteUnsentReports()
         call.resolve()
     }
-    
+
     @objc func recordException(_ call: CAPPluginCall) {
         guard let message = call.getString("message") else {
             call.reject(errorMessageMissing)
             return;
         }
-        let domain = call.getString("domain") ?? ""
-        let code = call.getInt("code") ?? -1001
-        implementation?.recordException(message, domain, code)
+
+        let stacktrace = call.getArray("stacktrace", JSObject.self)
+        if (stacktrace == nil || stacktrace!.isEmpty) {
+            let domain = call.getString("domain") ?? ""
+            let code = call.getInt("code") ?? -1001
+
+            implementation?.recordException(message, domain, code)
+        } else {
+            implementation?.recordExceptionWithStacktrace(message, stacktrace!)
+        }
         call.resolve()
     }
 }
