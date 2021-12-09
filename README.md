@@ -45,6 +45,12 @@ This plugin will use the following project variables (defined in your app’s `v
 
 See [Set up Xcode to automatically upload dSYM files](https://firebase.google.com/docs/crashlytics/get-started?platform=ios#set-up-dsym-uploading) and follow the instructions to set up Xcode correctly.
 
+Note that the path used in section 4.c of the Firebase Documentation should be:
+
+```shell
+"${PODS_ROOT}/FirebaseCrashlytics/run"
+```
+
 ## Configuration
 
 No configuration required for this plugin.
