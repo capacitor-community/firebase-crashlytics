@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/capacitor-community/firebase-crashlytics/compare/v1.2.0...v1.2.1) (2022-01-26)
+
+
+### Bug Fixes
+
+* inline source code in esm map files ([2ebaf7f](https://github.com/capacitor-community/firebase-crashlytics/commit/2ebaf7fd747e02db47f50e40e52fa3f8930d27cd))
+
 ## [1.2.0](https://github.com/capacitor-community/firebase-crashlytics/compare/v1.1.0...v1.2.0) (2021-10-30)
 
 
