@@ -8,7 +8,8 @@ import type {
 
 export class FirebaseCrashlyticsWeb
   extends WebPlugin
-  implements FirebaseCrashlyticsPlugin {
+  implements FirebaseCrashlyticsPlugin
+{
   public async setUserId(_options: { userId: string }): Promise<void> {
     throw this.unimplemented('Not implemented on web.');
   }
