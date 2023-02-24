@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/capacitor-community/firebase-crashlytics/compare/v2.0.0-1...v2.0.0) (2023-02-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* This plugin now only supports Capacitor 4.
+
+### Features
+
+* update to Capacitor 4 ([#72](https://github.com/capacitor-community/firebase-crashlytics/issues/72)) ([3d2a47f](https://github.com/capacitor-community/firebase-crashlytics/commit/3d2a47f2af8f70561673e7be5a0083de7fce6dc9))
+
 ## [1.3.0](https://github.com/capacitor-community/firebase-crashlytics/compare/v1.2.1...v1.3.0) (2022-03-08)
 
 
